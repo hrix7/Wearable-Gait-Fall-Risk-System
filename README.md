@@ -43,9 +43,12 @@ Python, MATLAB, NumPy, pandas, SciPy, signal processing, IMU, FSR, PPG, wearable
 
 This is an academic prototype and analysis portfolio, not a diagnostic or clinically validated fall-prediction device.
 
-## Author
+## Author and Project Setting
 
-Hritika Adhikary - M.S. Biomedical Engineering, Arizona State University.
+**Hritika Adhikary**  
+Graduate Wearable Technologies Project, Arizona State University  
+Faculty Advisor: Aurel Coza  
+Fall 2025
 
 ## Rights
 
