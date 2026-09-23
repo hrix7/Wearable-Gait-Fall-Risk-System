@@ -45,10 +45,11 @@ This is an academic prototype and analysis portfolio, not a diagnostic or clinic
 
 ## Author and Project Setting
 
-**Hritika Adhikary**  
-Graduate Wearable Technologies Project, Arizona State University  
-Faculty Advisor: Aurel Coza  
-Fall 2025
+**Author:** Hritika Adhikary  
+**Project:** Graduate Wearable Technologies Project  
+**Institution:** Arizona State University  
+**Faculty Advisor:** Aurel Coza  
+**Period:** Fall 2025
 
 ## Rights
 
