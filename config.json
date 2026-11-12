@@ -1,0 +1,20 @@
+{
+  "seed": 1729,
+  "sample_rate_hz": 50,
+  "duration_seconds": 20,
+  "cadences_spm": [
+    90,
+    120,
+    150
+  ],
+  "noise_sd_g": [
+    0.01,
+    0.06,
+    0.12
+  ],
+  "pulse_amplitude_g": 0.25,
+  "pulse_width_seconds": 0.04,
+  "min_interval_seconds": 0.3,
+  "prominence_g": 0.15,
+  "match_tolerance_seconds": 0.15
+}

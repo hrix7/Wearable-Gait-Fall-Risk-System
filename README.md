@@ -54,3 +54,18 @@ This is an academic prototype and analysis portfolio, not a diagnostic or clinic
 ## Rights
 
 Copyright (c) 2026 Hritika Adhikary. All rights reserved. See [LICENSE](LICENSE).
+
+## Reproducible synthetic benchmark
+
+The academic multimodal concept now has an acceleration-only software benchmark: three cadences × three noise levels, known synthetic step times, and measured detection/timing/cadence errors. This is not participant data or validated fall-risk prediction. See [provenance](DATA_PROVENANCE.md), [computed report](results/report.md) and [development backlog](DEVELOPMENT_BACKLOG.md).
+
+```sh
+python3 -m pip install -r requirements.txt
+python3 -m unittest discover -s tests -v
+python3 pipeline.py
+python3 pipeline.py --verify
+```
+
+The verifier recomputes data, metrics, reports and checksums and refuses mismatches. `--output DIR` supports isolated results. Dependencies are pinned. Candidate events must be strictly increasing nonnegative sample indices; missing/insufficient cadence estimates remain undefined rather than zero.
+
+GitHub Actions validates pushes, pull requests, manual requests and daily runs at 10:07 UTC. It has read-only repository access and uploads verified report artifacts; it does not modify source or require secrets. Source development is handled by the separate daily development schedule, with tests before pushes. All actions are pinned to commit SHAs.
