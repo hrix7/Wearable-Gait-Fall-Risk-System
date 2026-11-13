@@ -69,3 +69,7 @@ python3 pipeline.py --verify
 The verifier recomputes data, metrics, reports and checksums and refuses mismatches. `--output DIR` supports isolated results. Dependencies are pinned. Candidate events must be strictly increasing nonnegative sample indices; missing/insufficient cadence estimates remain undefined rather than zero.
 
 GitHub Actions validates pushes, pull requests, manual requests and daily runs at 10:07 UTC. It has read-only repository access and uploads verified report artifacts; it does not modify source or require secrets. Source development is handled by the separate daily development schedule, with tests before pushes. All actions are pinned to commit SHAs.
+
+## 2026-11-13 benchmark extension
+
+Adds a predeclared 0.125 g threshold above record median, local maxima and chronological refractory selection. It does not call the main SciPy prominence detector, and its thresholds are not selected on this evaluation grid. Both detectors use the same minimum interval and analytic references; results include baseline event FP/FN/F1 for every existing condition. A baseline is not clinical validation.

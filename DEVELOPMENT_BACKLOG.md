@@ -12,3 +12,5 @@
 2. Add a separate detector baseline and compare matched-event/cadence errors.
 3. Add independent seeds and uncertainty summaries with a stated sampling model.
 4. Review public gait dataset terms and subject-wise validation before any real-world claims.
+
+- Completed 2026-11-13: Independent fixed-height step baseline with event-error comparison.

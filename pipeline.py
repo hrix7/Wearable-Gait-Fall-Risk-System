@@ -94,6 +94,23 @@ def generate(config, cadence, noise):
     return truth,samples
 
 
+def fixed_height_baseline(samples, fs, interval):
+    """Predeclared 0.125 g height above median, chronological refractory rule.
+
+    Independent of SciPy prominence; illustrative baseline, not tuned on results.
+    """
+    import statistics
+    if len(samples)<3 or any(not math.isfinite(v) for v in samples):
+        raise ValueError('finite samples required')
+    if not math.isfinite(fs) or fs<=0 or not math.isfinite(interval) or interval<=0:
+        raise ValueError('finite positive sampling and interval required')
+    threshold=statistics.median(samples)+.125
+    distance=max(1,math.ceil(fs*interval));indices=[]
+    for i in range(1,len(samples)-1):
+        if samples[i]>samples[i-1] and samples[i]>=samples[i+1] and samples[i]>=threshold and (not indices or i-indices[-1]>=distance):
+            indices.append(i)
+    return indices
+
 def experiment():
     config_bytes=(ROOT/'config.json').read_bytes();config=json.loads(config_bytes);validate(config)
     stream=io.StringIO(newline='');writer=csv.writer(stream,lineterminator='\n')
@@ -109,6 +126,8 @@ def experiment():
             metrics.update(summary)
             metrics['cadence_absolute_error_spm']=abs(summary['cadence_spm']-cadence) if summary['cadence_spm'] is not None else None
             condition=dict(cadence_spm=cadence,noise_sd_g=noise,reference_steps=len(truth),metrics=metrics)
+            baseline=fixed_height_baseline(samples,fs,config['min_interval_seconds'])
+            condition['fixed_height_baseline_metrics']=event_metrics(truth,[i/fs for i in baseline],config['match_tolerance_seconds'])
             conditions.append(condition)
             marked=set(indices)
             for i,v in enumerate(samples):writer.writerow([cadence,noise,i,format(i/fs,'.12g'),format(v,'.12g'),int(i in marked)])
@@ -127,6 +146,10 @@ def experiment():
         m=c['metrics']
         report+='| '+' | '.join(show(x) for x in [c['cadence_spm'],c['noise_sd_g'],m['true_positives'],m['false_positives'],m['false_negatives'],m['f1'],m['timing_mae_seconds'],m['cadence_absolute_error_spm']])+' |\n'
     report+='\nOne-to-one matching maximizes event matches within the fixed tolerance, then minimizes total absolute timing error. Cadence uses the interval between detected steps, not total record duration. See DATA_PROVENANCE.md for assumptions, source versions and limitations.\n'
+    report+='\n## Independent fixed-height baseline\n\nPredeclared threshold: 0.125 g above record median, local maxima, chronological refractory spacing identical to the main detector. No evaluation-grid tuning. Not a clinical comparator.\n\n| Cadence | Noise SD | Baseline FP | Baseline FN | Baseline F1 |\n|---|---|---|---|---|\n'
+    for c in conditions:
+        b=c['fixed_height_baseline_metrics']
+        report+='| '+' | '.join(show(v) for v in [c['cadence_spm'],c['noise_sd_g'],b['false_positives'],b['false_negatives'],b['f1']])+' |\n'
     result_bytes=encode(result)
     report+='\nResult SHA-256: `'+digest(result_bytes)+'`\n'
     files={'data.csv':data,'results.json':result_bytes,'report.md':report.encode()}

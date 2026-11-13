@@ -7,3 +7,11 @@ Added nine fixed synthetic cadence/noise conditions with known event centers, in
 Local validation: Python 3.11.0; 17 tests, deterministic export, independent recomputation, artifact tamper rejection, diff whitespace check and actionlint 1.7.12. Pinned numpy 2.2.6, pandas 2.3.2 and scipy 1.16.2 match the installed runtime. Shellcheck is not available locally. Hosted validation is linked from the repository Actions page and is checked after publication.
 
 No participant data, clinical fall-risk model or completed multimodal device validation is implied. The existing academic IMU/FSR/PPG concept remains distinct from this new synthetic acceleration-only benchmark.
+
+## 2026-11-13
+
+Independent fixed-height step baseline with event-error comparison.
+
+Adds a predeclared 0.125 g threshold above record median, local maxima and chronological refractory selection. It does not call the main SciPy prominence detector, and its thresholds are not selected on this evaluation grid. Both detectors use the same minimum interval and analytic references; results include baseline event FP/FN/F1 for every existing condition. A baseline is not clinical validation.
+
+Validation: full unittest suite, pipeline regeneration and byte-for-byte verifier, diff review; GitHub validation outcome is tracked after push. No workflow/permission changes.
