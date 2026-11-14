@@ -6,11 +6,16 @@
 - Added detector/summary input validation, exact minimum-sample spacing and regression tests.
 - Added pinned dependencies and read-only GitHub Actions validation with daily report artifacts.
 
-## Next
+## Completed — 2026-11-13
 
-1. Add timing jitter, missing segments and sensor-artifact scenarios without tuning on the evaluation grid.
-2. Add a separate detector baseline and compare matched-event/cadence errors.
-3. Add independent seeds and uncertainty summaries with a stated sampling model.
-4. Review public gait dataset terms and subject-wise validation before any real-world claims.
+Independent fixed-height event-detector baseline.
 
-- Completed 2026-11-13: Independent fixed-height step baseline with event-error comparison.
+## Completed — 2026-11-14
+
+Bounded event-time jitter with independent timing/noise channels.
+
+## Next priorities
+
+1. Add explicitly defined missing-segment and motion-artifact scenarios.
+2. Introduce independent-seed uncertainty summaries with a stated sampling model.
+3. Review public gait dataset terms and subject-wise evaluation.

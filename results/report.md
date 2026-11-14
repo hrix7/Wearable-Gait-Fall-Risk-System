@@ -32,4 +32,20 @@ Predeclared threshold: 0.125 g above record median, local maxima, chronological 
 | 150 | 0.06 | 1 | 0 | 0.9895 |
 | 150 | 0.12 | 6 | 4 | 0.8958 |
 
-Result SHA-256: `1ee79483dc1f90b14e39971362d9b11cf7c6ac38cdd576390fbf8ef9d0ff81ae`
+## Bounded timing jitter
+
+Reference centers have independent-seed uniform offsets (half-width min(0.06 s, 0.2 periods)); observation noise stream is unchanged. Actual perturbed centers define truth, not a regular schedule. Full samples are in jitter_data.csv.
+
+| Nominal cadence | Noise SD | Half-width (s) | FP | FN | F1 |
+|---|---|---|---|---|---|
+| 90 | 0.01 | 0.06 | 0 | 0 | 1 |
+| 90 | 0.06 | 0.06 | 11 | 0 | 0.8406 |
+| 90 | 0.12 | 0.06 | 19 | 2 | 0.72 |
+| 120 | 0.01 | 0.06 | 0 | 0 | 1 |
+| 120 | 0.06 | 0.06 | 1 | 0 | 0.987 |
+| 120 | 0.12 | 0.06 | 5 | 1 | 0.925 |
+| 150 | 0.01 | 0.06 | 0 | 1 | 0.9892 |
+| 150 | 0.06 | 0.06 | 1 | 3 | 0.9565 |
+| 150 | 0.12 | 0.06 | 3 | 1 | 0.9583 |
+
+Result SHA-256: `5d51ba601a21fd9d5672c9573aad9c193b6ab467c6dbf66735b8aeb5a7d8b533`

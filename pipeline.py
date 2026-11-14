@@ -82,12 +82,17 @@ def validate(config):
         raise ValueError('seed must be an integer')
 
 
-def generate(config, cadence, noise):
+def generate(config, cadence, noise, jitter_half_width=0):
     # Analytic pulse centers define truth independently of the detector.
     fs=config['sample_rate_hz']; count=round(config['duration_seconds']*fs)
     truth=[]; t=.75
     while t < config['duration_seconds']-.5:
         truth.append(t); t=.75+len(truth)*60/cadence
+    if not math.isfinite(jitter_half_width) or jitter_half_width<0 or jitter_half_width>=min(.25*60/cadence,.25):
+        raise ValueError('jitter must be nonnegative, finite and smaller than quarter-period and 0.25 s')
+    if jitter_half_width:
+        timing_rng=random.Random(config['seed']+1)
+        truth=[t+timing_rng.uniform(-jitter_half_width,jitter_half_width) for t in truth]
     rng=random.Random(config['seed'])
     samples=[1+sum(config['pulse_amplitude_g']*math.exp(-.5*((i/fs-t)/config['pulse_width_seconds'])**2)
                    for t in truth)+rng.gauss(0,noise) for i in range(count)]
@@ -133,11 +138,23 @@ def experiment():
             for i,v in enumerate(samples):writer.writerow([cadence,noise,i,format(i/fs,'.12g'),format(v,'.12g'),int(i in marked)])
             chart.append(dict(cadence_spm=cadence,noise_sd_g=noise,reference_times=truth,detected_times=times,
                               samples=samples[:fs*5],sample_rate_hz=fs))
+    jitter_stream=io.StringIO(newline='');jitter_writer=csv.writer(jitter_stream,lineterminator='\n')
+    jitter_writer.writerow(['cadence_spm','noise_sd_g','sample','time_seconds','acceleration_g'])
+    jitter_conditions=[]
+    for cadence in config['cadences_spm']:
+        for noise in config['noise_sd_g']:
+            jitter=min(.06,.2*60/cadence);truth,samples=generate(config,cadence,noise,jitter)
+            fs=config['sample_rate_hz'];idx=detect_steps(samples,fs,config['min_interval_seconds'],config['prominence_g']).tolist()
+            baseline=fixed_height_baseline(samples,fs,config['min_interval_seconds'])
+            jitter_conditions.append(dict(cadence_spm=cadence,noise_sd_g=noise,jitter_half_width_seconds=jitter,reference_times=truth,detected_times=[i/fs for i in idx],metrics=event_metrics(truth,[i/fs for i in idx],config['match_tolerance_seconds']),fixed_height_baseline_metrics=event_metrics(truth,[i/fs for i in baseline],config['match_tolerance_seconds'])))
+            for i,v in enumerate(samples):jitter_writer.writerow([cadence,noise,i,format(i/fs,'.12g'),format(v,'.12g')])
+    jitter_data=jitter_stream.getvalue().encode()
     data=stream.getvalue().encode()
     sources={name:digest((ROOT/name).read_bytes()) for name in ('pipeline.py','src/step_detection.py','src/gait_summary.py')}
     result=dict(schema_version=1,data_kind='synthetic',config=config,config_sha256=digest(config_bytes),
                 source_sha256=sources['pipeline.py'],source_files_sha256=sources,data_sha256=digest(data),
-                conditions=conditions,chart=chart,
+                conditions=conditions,chart=chart,jitter_conditions=jitter_conditions,jitter_data_sha256=digest(jitter_data),
+                jitter_protocol='Independent seed+1 uniform event offsets; half-width min(0.06 s, 0.2 periods); nominal cadence labels remain generator settings. Noise seed/channel unchanged; actual perturbed centers are truth.',
                 limitations='Gaussian pulse acceleration surrogate with known event centers. Not measured walking, participant validation or clinical fall-risk prediction.')
     report='# Synthetic gait event benchmark\n\nKnown pulse centers are reference events. All values below are measured by the detector; no clinical validity is claimed.\n\n'
     report+='| Cadence (steps/min) | Noise SD (g) | TP | FP | FN | F1 | Timing MAE (s) | Cadence error (steps/min) |\n|---|---|---|---|---|---|---|---|\n'
@@ -150,9 +167,12 @@ def experiment():
     for c in conditions:
         b=c['fixed_height_baseline_metrics']
         report+='| '+' | '.join(show(v) for v in [c['cadence_spm'],c['noise_sd_g'],b['false_positives'],b['false_negatives'],b['f1']])+' |\n'
+    report+='\n## Bounded timing jitter\n\nReference centers have independent-seed uniform offsets (half-width min(0.06 s, 0.2 periods)); observation noise stream is unchanged. Actual perturbed centers define truth, not a regular schedule. Full samples are in jitter_data.csv.\n\n| Nominal cadence | Noise SD | Half-width (s) | FP | FN | F1 |\n|---|---|---|---|---|---|\n'
+    for c in jitter_conditions:
+        m=c['metrics'];report+='| '+' | '.join(show(v) for v in [c['cadence_spm'],c['noise_sd_g'],c['jitter_half_width_seconds'],m['false_positives'],m['false_negatives'],m['f1']])+' |\n'
     result_bytes=encode(result)
     report+='\nResult SHA-256: `'+digest(result_bytes)+'`\n'
-    files={'data.csv':data,'results.json':result_bytes,'report.md':report.encode()}
+    files={'data.csv':data,'jitter_data.csv':jitter_data,'results.json':result_bytes,'report.md':report.encode()}
     files['manifest.json']=encode({name:digest(content) for name,content in files.items()})
     return files
 

@@ -73,3 +73,7 @@ GitHub Actions validates pushes, pull requests, manual requests and daily runs a
 ## 2026-11-13 benchmark extension
 
 Adds a predeclared 0.125 g threshold above record median, local maxima and chronological refractory selection. It does not call the main SciPy prominence detector, and its thresholds are not selected on this evaluation grid. Both detectors use the same minimum interval and analytic references; results include baseline event FP/FN/F1 for every existing condition. A baseline is not clinical validation.
+
+## 2026-11-14 extension
+
+Adds nine stress cases with independently seeded uniform timing offsets, half-width min(0.06 s, 0.2 periods), plus full jitter_data.csv and fingerprints. Actual perturbed centers define event truth; nominal cadence remains a generator setting. Both detectors are evaluated without tuning; the original nine regular-timing cases are retained.
