@@ -18,11 +18,14 @@ def summarize_steps(indices, sample_rate_hz: float) -> dict[str, float | int | N
         raise ValueError("sample_rate_hz must be finite and positive")
     if peaks.size < 2:
         return {"steps": int(peaks.size), "cadence_spm": None,
-                "mean_interval_s": None, "interval_cv_percent": None}
+                "mean_interval_s": None, "interval_cv_percent": None,
+                "interval_count": 0,"sample_interval_cv_percent": None}
     intervals = np.diff(peaks) / sample_rate_hz
     mean_interval = float(intervals.mean())
     return {
         "steps": int(peaks.size),
+        "interval_count": int(intervals.size),
+        "sample_interval_cv_percent": float(100.0 * intervals.std(ddof=1) / mean_interval) if intervals.size>=2 else None,
         "cadence_spm": float(60.0 / mean_interval),
         "mean_interval_s": mean_interval,
         "interval_cv_percent": float(100.0 * intervals.std(ddof=0) / mean_interval),

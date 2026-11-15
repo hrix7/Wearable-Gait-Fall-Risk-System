@@ -23,3 +23,11 @@ Bounded event-time jitter with independent timing/noise channels.
 Adds nine stress cases with independently seeded uniform timing offsets, half-width min(0.06 s, 0.2 periods), plus full jitter_data.csv and fingerprints. Actual perturbed centers define event truth; nominal cadence remains a generator setting. Both detectors are evaluated without tuning; the original nine regular-timing cases are retained.
 
 Validation before publication: full unittest suite, regenerated pipeline artifacts, byte-for-byte verification and diff review. Workflow configuration/permissions unchanged; existing policy tests pass. Hosted CI is followed after the tested source is published.
+
+## 2026-11-15
+
+Expose interval sample size and separate sample-SD variability.
+
+Adds interval_count and sample_interval_cv_percent (sample SD, ddof=1), undefined with fewer than two intervals. Existing interval_cv_percent retains population SD, ddof=0, so historical semantics are preserved. The sample-CV ratio is not claimed to be an unbiased estimator or a clinical fall-risk score.
+
+Validation before publication: full unittest suite, pipeline regeneration/byte verifier, diff review and existing workflow-policy tests. Workflows and permissions unchanged. Hosted validation is followed after publication.

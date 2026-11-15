@@ -155,6 +155,7 @@ def experiment():
                 source_sha256=sources['pipeline.py'],source_files_sha256=sources,data_sha256=digest(data),
                 conditions=conditions,chart=chart,jitter_conditions=jitter_conditions,jitter_data_sha256=digest(jitter_data),
                 jitter_protocol='Independent seed+1 uniform event offsets; half-width min(0.06 s, 0.2 periods); nominal cadence labels remain generator settings. Noise seed/channel unchanged; actual perturbed centers are truth.',
+                summary_interpretation='interval_cv_percent retains population SD (ddof=0). sample_interval_cv_percent uses sample SD (ddof=1) only with >=2 intervals; interval_count makes sample size explicit. Neither estimates clinical fall risk.',
                 limitations='Gaussian pulse acceleration surrogate with known event centers. Not measured walking, participant validation or clinical fall-risk prediction.')
     report='# Synthetic gait event benchmark\n\nKnown pulse centers are reference events. All values below are measured by the detector; no clinical validity is claimed.\n\n'
     report+='| Cadence (steps/min) | Noise SD (g) | TP | FP | FN | F1 | Timing MAE (s) | Cadence error (steps/min) |\n|---|---|---|---|---|---|---|---|\n'

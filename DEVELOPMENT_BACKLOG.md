@@ -14,6 +14,10 @@ Independent fixed-height event-detector baseline.
 
 Bounded event-time jitter with independent timing/noise channels.
 
+## Completed — 2026-11-15
+
+Expose interval sample size and separate sample-SD variability.
+
 ## Next priorities
 
 1. Add explicitly defined missing-segment and motion-artifact scenarios.

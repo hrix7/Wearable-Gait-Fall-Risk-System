@@ -48,4 +48,4 @@ Reference centers have independent-seed uniform offsets (half-width min(0.06 s, 
 | 150 | 0.06 | 0.06 | 1 | 3 | 0.9565 |
 | 150 | 0.12 | 0.06 | 3 | 1 | 0.9583 |
 
-Result SHA-256: `5d51ba601a21fd9d5672c9573aad9c193b6ab467c6dbf66735b8aeb5a7d8b533`
+Result SHA-256: `57503e1a21bcf538627c0fa1aa919cca2b6638403caabfc2b11101816249fb94`
