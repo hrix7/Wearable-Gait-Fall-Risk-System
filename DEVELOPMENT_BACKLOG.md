@@ -18,8 +18,12 @@ Bounded event-time jitter with independent timing/noise channels.
 
 Expose interval sample size and separate sample-SD variability.
 
+## Completed — 2026-11-17
+
+Flattened-signal gap scenarios.
+
 ## Next priorities
 
-1. Add explicitly defined missing-segment and motion-artifact scenarios.
+1. Add defined motion-artifact scenarios with independent event truth.
 2. Introduce independent-seed uncertainty summaries with a stated sampling model.
 3. Review public gait dataset terms and subject-wise evaluation.

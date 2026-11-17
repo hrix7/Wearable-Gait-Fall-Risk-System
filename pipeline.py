@@ -116,6 +116,11 @@ def fixed_height_baseline(samples, fs, interval):
             indices.append(i)
     return indices
 
+def flatten_gap(samples,fs,start,end):
+    if not samples or any(not math.isfinite(v) for v in samples) or any(not math.isfinite(v) for v in (fs,start,end)) or fs<=0 or not 0<=start<end<=len(samples)/fs:
+        raise ValueError('finite signal and bounded positive gap interval required')
+    return [1.0 if start<=i/fs<end else v for i,v in enumerate(samples)]
+
 def experiment():
     config_bytes=(ROOT/'config.json').read_bytes();config=json.loads(config_bytes);validate(config)
     stream=io.StringIO(newline='');writer=csv.writer(stream,lineterminator='\n')
@@ -148,6 +153,13 @@ def experiment():
             baseline=fixed_height_baseline(samples,fs,config['min_interval_seconds'])
             jitter_conditions.append(dict(cadence_spm=cadence,noise_sd_g=noise,jitter_half_width_seconds=jitter,reference_times=truth,detected_times=[i/fs for i in idx],metrics=event_metrics(truth,[i/fs for i in idx],config['match_tolerance_seconds']),fixed_height_baseline_metrics=event_metrics(truth,[i/fs for i in baseline],config['match_tolerance_seconds'])))
             for i,v in enumerate(samples):jitter_writer.writerow([cadence,noise,i,format(i/fs,'.12g'),format(v,'.12g')])
+    gap_conditions=[];start=.4*config['duration_seconds'];end=.5*config['duration_seconds']
+    for cadence in config['cadences_spm']:
+        for noise in config['noise_sd_g']:
+            truth,samples=generate(config,cadence,noise);fs=config['sample_rate_hz'];masked=flatten_gap(samples,fs,start,end)
+            idx=detect_steps(masked,fs,config['min_interval_seconds'],config['prominence_g']).tolist();times=[i/fs for i in idx]
+            present=[t for t in truth if not start<=t<end]
+            gap_conditions.append(dict(cadence_spm=cadence,noise_sd_g=noise,gap_start_seconds=start,gap_end_seconds=end,nominal_reference_count=len(truth),present_reference_count=len(present),reference_centers_in_gap=len(truth)-len(present),signal_sha256=digest(encode(masked)),nominal_event_metrics=event_metrics(truth,times,config['match_tolerance_seconds']),present_event_metrics=event_metrics(present,times,config['match_tolerance_seconds'])))
     jitter_data=jitter_stream.getvalue().encode()
     data=stream.getvalue().encode()
     sources={name:digest((ROOT/name).read_bytes()) for name in ('pipeline.py','src/step_detection.py','src/gait_summary.py')}
@@ -155,6 +167,7 @@ def experiment():
                 source_sha256=sources['pipeline.py'],source_files_sha256=sources,data_sha256=digest(data),
                 conditions=conditions,chart=chart,jitter_conditions=jitter_conditions,jitter_data_sha256=digest(jitter_data),
                 jitter_protocol='Independent seed+1 uniform event offsets; half-width min(0.06 s, 0.2 periods); nominal cadence labels remain generator settings. Noise seed/channel unchanged; actual perturbed centers are truth.',
+                gap_conditions=gap_conditions,signal_gap_protocol='Base regular-timing signals have samples in [0.4*duration,0.5*duration) replaced by constant 1 g, timestamps retained. This is a finite flattening surrogate, not real missing-value handling. Reproduce full-precision masked signals from the generator/config and stated mask. Base data.csv is rounded and does not reproduce full-precision signal hashes. Nominal references include gap centers; present references exclude them. Boundary/filter peaks can match nominal slots without recovering signal.',
                 summary_interpretation='interval_cv_percent retains population SD (ddof=0). sample_interval_cv_percent uses sample SD (ddof=1) only with >=2 intervals; interval_count makes sample size explicit. Neither estimates clinical fall risk.',
                 limitations='Gaussian pulse acceleration surrogate with known event centers. Not measured walking, participant validation or clinical fall-risk prediction.')
     report='# Synthetic gait event benchmark\n\nKnown pulse centers are reference events. All values below are measured by the detector; no clinical validity is claimed.\n\n'
@@ -171,6 +184,9 @@ def experiment():
     report+='\n## Bounded timing jitter\n\nReference centers have independent-seed uniform offsets (half-width min(0.06 s, 0.2 periods)); observation noise stream is unchanged. Actual perturbed centers define truth, not a regular schedule. Full samples are in jitter_data.csv.\n\n| Nominal cadence | Noise SD | Half-width (s) | FP | FN | F1 |\n|---|---|---|---|---|---|\n'
     for c in jitter_conditions:
         m=c['metrics'];report+='| '+' | '.join(show(v) for v in [c['cadence_spm'],c['noise_sd_g'],c['jitter_half_width_seconds'],m['false_positives'],m['false_negatives'],m['f1']])+' |\n'
+    report+='\n## Flattened-signal gap probe\n\nA separate finite dropout surrogate replaces [0.4T,0.5T) with 1 g. Nominal-reference misses include intentionally masked pulse centers; present-reference misses exclude them. This does not validate handling of real missing values. Reproduce from the regular generator and stated mask.\n\n| Cadence | Noise SD | Reference centers in gap | Nominal FN | Present FN | Present FP |\n|---|---|---|---|---|---|\n'
+    for c in gap_conditions:
+        report+='| '+' | '.join(show(v) for v in [c['cadence_spm'],c['noise_sd_g'],c['reference_centers_in_gap'],c['nominal_event_metrics']['false_negatives'],c['present_event_metrics']['false_negatives'],c['present_event_metrics']['false_positives']])+' |\n'
     result_bytes=encode(result)
     report+='\nResult SHA-256: `'+digest(result_bytes)+'`\n'
     files={'data.csv':data,'jitter_data.csv':jitter_data,'results.json':result_bytes,'report.md':report.encode()}

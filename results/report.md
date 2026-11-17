@@ -48,4 +48,20 @@ Reference centers have independent-seed uniform offsets (half-width min(0.06 s, 
 | 150 | 0.06 | 0.06 | 1 | 3 | 0.9565 |
 | 150 | 0.12 | 0.06 | 3 | 1 | 0.9583 |
 
-Result SHA-256: `57503e1a21bcf538627c0fa1aa919cca2b6638403caabfc2b11101816249fb94`
+## Flattened-signal gap probe
+
+A separate finite dropout surrogate replaces [0.4T,0.5T) with 1 g. Nominal-reference misses include intentionally masked pulse centers; present-reference misses exclude them. This does not validate handling of real missing values. Reproduce from the regular generator and stated mask.
+
+| Cadence | Noise SD | Reference centers in gap | Nominal FN | Present FN | Present FP |
+|---|---|---|---|---|---|
+| 90 | 0.01 | 3 | 3 | 0 | 0 |
+| 90 | 0.06 | 3 | 3 | 0 | 9 |
+| 90 | 0.12 | 3 | 6 | 3 | 22 |
+| 120 | 0.01 | 4 | 4 | 0 | 0 |
+| 120 | 0.06 | 4 | 4 | 0 | 1 |
+| 120 | 0.12 | 4 | 8 | 4 | 6 |
+| 150 | 0.01 | 5 | 5 | 0 | 0 |
+| 150 | 0.06 | 5 | 4 | 0 | 2 |
+| 150 | 0.12 | 5 | 6 | 2 | 5 |
+
+Result SHA-256: `ed1a656e9af653624800176603ddcba6dcbb10a19e0626892d64d26eed73f15b`

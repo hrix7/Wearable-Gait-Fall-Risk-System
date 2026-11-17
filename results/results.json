@@ -3365,6 +3365,260 @@
   "config_sha256": "0e81da07c83b0aee5f53f8c62da44617d1c449bc97351232c2628095b7b77015",
   "data_kind": "synthetic",
   "data_sha256": "85f64b68c91de461feaa88f8edba0f76a9980b6f31c7abcddc47ed7807cd4869",
+  "gap_conditions": [
+    {
+      "cadence_spm": 90,
+      "gap_end_seconds": 10.0,
+      "gap_start_seconds": 8.0,
+      "noise_sd_g": 0.01,
+      "nominal_event_metrics": {
+        "f1": 0.9454545454545454,
+        "false_negatives": 3,
+        "false_positives": 0,
+        "precision": 1.0,
+        "recall": 0.896551724137931,
+        "timing_mae_seconds": 0.006153846153846476,
+        "true_positives": 26
+      },
+      "nominal_reference_count": 29,
+      "present_event_metrics": {
+        "f1": 1.0,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "timing_mae_seconds": 0.006153846153846476,
+        "true_positives": 26
+      },
+      "present_reference_count": 26,
+      "reference_centers_in_gap": 3,
+      "signal_sha256": "1c9a84b605309a6f4b33a439f957cd8b71a0038a11f7a9674176b9235e6d9604"
+    },
+    {
+      "cadence_spm": 90,
+      "gap_end_seconds": 10.0,
+      "gap_start_seconds": 8.0,
+      "noise_sd_g": 0.06,
+      "nominal_event_metrics": {
+        "f1": 0.8125,
+        "false_negatives": 3,
+        "false_positives": 9,
+        "precision": 0.7428571428571429,
+        "recall": 0.896551724137931,
+        "timing_mae_seconds": 0.015897435897436238,
+        "true_positives": 26
+      },
+      "nominal_reference_count": 29,
+      "present_event_metrics": {
+        "f1": 0.8524590163934426,
+        "false_negatives": 0,
+        "false_positives": 9,
+        "precision": 0.7428571428571429,
+        "recall": 1.0,
+        "timing_mae_seconds": 0.015897435897436238,
+        "true_positives": 26
+      },
+      "present_reference_count": 26,
+      "reference_centers_in_gap": 3,
+      "signal_sha256": "baf2df18f84c32df1df7b0a4866c43591073ba2d49ae4b5cc2be681a47d476fc"
+    },
+    {
+      "cadence_spm": 90,
+      "gap_end_seconds": 10.0,
+      "gap_start_seconds": 8.0,
+      "noise_sd_g": 0.12,
+      "nominal_event_metrics": {
+        "f1": 0.6216216216216216,
+        "false_negatives": 6,
+        "false_positives": 22,
+        "precision": 0.5111111111111111,
+        "recall": 0.7931034482758621,
+        "timing_mae_seconds": 0.03173913043478303,
+        "true_positives": 23
+      },
+      "nominal_reference_count": 29,
+      "present_event_metrics": {
+        "f1": 0.647887323943662,
+        "false_negatives": 3,
+        "false_positives": 22,
+        "precision": 0.5111111111111111,
+        "recall": 0.8846153846153846,
+        "timing_mae_seconds": 0.03173913043478303,
+        "true_positives": 23
+      },
+      "present_reference_count": 26,
+      "reference_centers_in_gap": 3,
+      "signal_sha256": "fe4e6d722c831c5bde049422dc720cef2e2a0a98141931e56f2d04af6a3d11c1"
+    },
+    {
+      "cadence_spm": 120,
+      "gap_end_seconds": 10.0,
+      "gap_start_seconds": 8.0,
+      "noise_sd_g": 0.01,
+      "nominal_event_metrics": {
+        "f1": 0.9444444444444444,
+        "false_negatives": 4,
+        "false_positives": 0,
+        "precision": 1.0,
+        "recall": 0.8947368421052632,
+        "timing_mae_seconds": 0.010000000000000172,
+        "true_positives": 34
+      },
+      "nominal_reference_count": 38,
+      "present_event_metrics": {
+        "f1": 1.0,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "timing_mae_seconds": 0.010000000000000172,
+        "true_positives": 34
+      },
+      "present_reference_count": 34,
+      "reference_centers_in_gap": 4,
+      "signal_sha256": "fcf6760c23211e49587b7f23d8cdb073869779a59d8898cc0cd9f917816282b2"
+    },
+    {
+      "cadence_spm": 120,
+      "gap_end_seconds": 10.0,
+      "gap_start_seconds": 8.0,
+      "noise_sd_g": 0.06,
+      "nominal_event_metrics": {
+        "f1": 0.9315068493150684,
+        "false_negatives": 4,
+        "false_positives": 1,
+        "precision": 0.9714285714285714,
+        "recall": 0.8947368421052632,
+        "timing_mae_seconds": 0.015294117647058961,
+        "true_positives": 34
+      },
+      "nominal_reference_count": 38,
+      "present_event_metrics": {
+        "f1": 0.9855072463768116,
+        "false_negatives": 0,
+        "false_positives": 1,
+        "precision": 0.9714285714285714,
+        "recall": 1.0,
+        "timing_mae_seconds": 0.015294117647058961,
+        "true_positives": 34
+      },
+      "present_reference_count": 34,
+      "reference_centers_in_gap": 4,
+      "signal_sha256": "c5fdddf4e07c5b9bb03934ba59a53c2530f155c4a13d02fa43e48388a90a8bf2"
+    },
+    {
+      "cadence_spm": 120,
+      "gap_end_seconds": 10.0,
+      "gap_start_seconds": 8.0,
+      "noise_sd_g": 0.12,
+      "nominal_event_metrics": {
+        "f1": 0.8108108108108109,
+        "false_negatives": 8,
+        "false_positives": 6,
+        "precision": 0.8333333333333334,
+        "recall": 0.7894736842105263,
+        "timing_mae_seconds": 0.02400000000000008,
+        "true_positives": 30
+      },
+      "nominal_reference_count": 38,
+      "present_event_metrics": {
+        "f1": 0.8571428571428571,
+        "false_negatives": 4,
+        "false_positives": 6,
+        "precision": 0.8333333333333334,
+        "recall": 0.8823529411764706,
+        "timing_mae_seconds": 0.02400000000000008,
+        "true_positives": 30
+      },
+      "present_reference_count": 34,
+      "reference_centers_in_gap": 4,
+      "signal_sha256": "d5795616dd391caecd29fc1b9001b28019d27ac7af2749d33dcf3023dae35e7e"
+    },
+    {
+      "cadence_spm": 150,
+      "gap_end_seconds": 10.0,
+      "gap_start_seconds": 8.0,
+      "noise_sd_g": 0.01,
+      "nominal_event_metrics": {
+        "f1": 0.9438202247191011,
+        "false_negatives": 5,
+        "false_positives": 0,
+        "precision": 1.0,
+        "recall": 0.8936170212765957,
+        "timing_mae_seconds": 0.01000000000000021,
+        "true_positives": 42
+      },
+      "nominal_reference_count": 47,
+      "present_event_metrics": {
+        "f1": 1.0,
+        "false_negatives": 0,
+        "false_positives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "timing_mae_seconds": 0.01000000000000021,
+        "true_positives": 42
+      },
+      "present_reference_count": 42,
+      "reference_centers_in_gap": 5,
+      "signal_sha256": "9ab0107dc73315edb4c85b4cf67636f6f989ba7f47a66616b2c02239cdd8d051"
+    },
+    {
+      "cadence_spm": 150,
+      "gap_end_seconds": 10.0,
+      "gap_start_seconds": 8.0,
+      "noise_sd_g": 0.06,
+      "nominal_event_metrics": {
+        "f1": 0.945054945054945,
+        "false_negatives": 4,
+        "false_positives": 1,
+        "precision": 0.9772727272727273,
+        "recall": 0.9148936170212766,
+        "timing_mae_seconds": 0.015116279069767646,
+        "true_positives": 43
+      },
+      "nominal_reference_count": 47,
+      "present_event_metrics": {
+        "f1": 0.9767441860465116,
+        "false_negatives": 0,
+        "false_positives": 2,
+        "precision": 0.9545454545454546,
+        "recall": 1.0,
+        "timing_mae_seconds": 0.014285714285714478,
+        "true_positives": 42
+      },
+      "present_reference_count": 42,
+      "reference_centers_in_gap": 5,
+      "signal_sha256": "efe5c69c1b52eddc3c49d687d379c0a91e9470108317e1d0f77d023ca639f3c9"
+    },
+    {
+      "cadence_spm": 150,
+      "gap_end_seconds": 10.0,
+      "gap_start_seconds": 8.0,
+      "noise_sd_g": 0.12,
+      "nominal_event_metrics": {
+        "f1": 0.8913043478260869,
+        "false_negatives": 6,
+        "false_positives": 4,
+        "precision": 0.9111111111111111,
+        "recall": 0.8723404255319149,
+        "timing_mae_seconds": 0.027560975609756337,
+        "true_positives": 41
+      },
+      "nominal_reference_count": 47,
+      "present_event_metrics": {
+        "f1": 0.9195402298850575,
+        "false_negatives": 2,
+        "false_positives": 5,
+        "precision": 0.8888888888888888,
+        "recall": 0.9523809523809523,
+        "timing_mae_seconds": 0.02700000000000023,
+        "true_positives": 40
+      },
+      "present_reference_count": 42,
+      "reference_centers_in_gap": 5,
+      "signal_sha256": "63e8d8bbd2d0c9e7e58c90d17c22a7a04c32647087fcaef2654eb241a12448fa"
+    }
+  ],
   "jitter_conditions": [
     {
       "cadence_spm": 90,
@@ -4330,11 +4584,12 @@
   "jitter_protocol": "Independent seed+1 uniform event offsets; half-width min(0.06 s, 0.2 periods); nominal cadence labels remain generator settings. Noise seed/channel unchanged; actual perturbed centers are truth.",
   "limitations": "Gaussian pulse acceleration surrogate with known event centers. Not measured walking, participant validation or clinical fall-risk prediction.",
   "schema_version": 1,
+  "signal_gap_protocol": "Base regular-timing signals have samples in [0.4*duration,0.5*duration) replaced by constant 1 g, timestamps retained. This is a finite flattening surrogate, not real missing-value handling. Reproduce full-precision masked signals from the generator/config and stated mask. Base data.csv is rounded and does not reproduce full-precision signal hashes. Nominal references include gap centers; present references exclude them. Boundary/filter peaks can match nominal slots without recovering signal.",
   "source_files_sha256": {
-    "pipeline.py": "15b38e84c108e881924c2cab9ad6b59d829f05567a5a4486d8e5bf42be303dd5",
+    "pipeline.py": "0f0e29c6e7a62cf423850baa966a53a3f6fa0e111e444fa6a24aa0257cf69c1c",
     "src/gait_summary.py": "83908a6153884206a2487127513343322762390a5847ff95c4d16d74f6fedb57",
     "src/step_detection.py": "7c779cb1f5696586be7f51aa1e8c6d6e6cead1ab89e3170ca777128757a69187"
   },
-  "source_sha256": "15b38e84c108e881924c2cab9ad6b59d829f05567a5a4486d8e5bf42be303dd5",
+  "source_sha256": "0f0e29c6e7a62cf423850baa966a53a3f6fa0e111e444fa6a24aa0257cf69c1c",
   "summary_interpretation": "interval_cv_percent retains population SD (ddof=0). sample_interval_cv_percent uses sample SD (ddof=1) only with >=2 intervals; interval_count makes sample size explicit. Neither estimates clinical fall risk."
 }

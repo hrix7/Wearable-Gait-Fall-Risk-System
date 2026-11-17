@@ -81,3 +81,7 @@ Adds nine stress cases with independently seeded uniform timing offsets, half-wi
 ## 2026-11-15 correctness extension
 
 Adds interval_count and sample_interval_cv_percent (sample SD, ddof=1), undefined with fewer than two intervals. Existing interval_cv_percent retains population SD, ddof=0, so historical semantics are preserved. The sample-CV ratio is not claimed to be an unbiased estimator or a clinical fall-risk score.
+
+## Flattened-signal gap scenarios
+
+Added nine deterministic finite flattening scenarios: replace [0.4T,0.5T) by 1 g while retaining timestamps. Evaluate separately against nominal events and reference centers outside the gap. This is not support for real NaN/missing samples, participant gait, or clinical fall-risk prediction. Full-precision masked signal hashes reproduce from the generator/config, not the rounded base CSV. Tests cover mask boundaries, invalid intervals, reference accounting and exact regeneration.
