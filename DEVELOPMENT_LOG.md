@@ -35,3 +35,7 @@ Validation before publication: full unittest suite, pipeline regeneration/byte v
 ## 2026-11-17 — Flattened-signal gap scenarios
 
 Completed the retained, unpublished implementation from November 16. Added nine deterministic finite flattening scenarios: replace [0.4T,0.5T) by 1 g while retaining timestamps. Evaluate separately against nominal events and reference centers outside the gap. This is not support for real NaN/missing samples, participant gait, or clinical fall-risk prediction. Full-precision masked signal hashes reproduce from the generator/config, not the rounded base CSV. Tests cover mask boundaries, invalid intervals, reference accounting and exact regeneration. Full unit tests, pipeline regeneration and artifact verification run before publication; no workflow or permission changes.
+
+## 2026-11-18 — Paired additive motion-burst scenarios
+
+Nine motion conditions add a fixed 0.4 g, 2.7 Hz sinusoid under a sin-squared envelope on [0.3T,0.6T). Original pulse centers and paired noise are unchanged. Both predeclared detectors are scored against independent event truth. Tests check analytic envelope samples, exact untouched boundaries, invalid inputs, full-precision signal hashes and independently recomputed metrics. This is a teaching acceleration surrogate, not measured participant motion or clinical fall-risk validation. Full suite: 33 tests passed; pipeline generation, independent --verify and diff checks passed before publication. No workflow/permission changes; workflow policy tests passed.

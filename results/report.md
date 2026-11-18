@@ -64,4 +64,20 @@ A separate finite dropout surrogate replaces [0.4T,0.5T) with 1 g. Nominal-refer
 | 150 | 0.06 | 5 | 4 | 0 | 2 |
 | 150 | 0.12 | 5 | 6 | 2 | 5 |
 
-Result SHA-256: `ed1a656e9af653624800176603ddcba6dcbb10a19e0626892d64d26eed73f15b`
+## Additive motion-burst probe
+
+Independent additive 0.4 g, 2.7 Hz sinusoid under a sin-squared envelope on [0.3T,0.6T). Event truth and paired base noise remain unchanged. Teaching perturbation, not participant motion validation.
+
+| Cadence | Noise SD | Extra | Missed | Prominence F1 | Fixed-height F1 |
+|---|---|---|---|---|---|
+| 90 | 0.01 | 6 | 2 | 0.871 | 0.871 |
+| 90 | 0.06 | 13 | 1 | 0.8 | 0.8125 |
+| 90 | 0.12 | 24 | 5 | 0.6234 | 0.6154 |
+| 120 | 0.01 | 5 | 3 | 0.8974 | 0.8974 |
+| 120 | 0.06 | 7 | 3 | 0.875 | 0.9 |
+| 120 | 0.12 | 9 | 5 | 0.825 | 0.6591 |
+| 150 | 0.01 | 2 | 2 | 0.9574 | 0.9574 |
+| 150 | 0.06 | 4 | 3 | 0.9263 | 0.9474 |
+| 150 | 0.12 | 7 | 6 | 0.8632 | 0.866 |
+
+Result SHA-256: `0a75094a5fd56f7877e3dcb2bf0c05105383690beb246495a5226f1185d0de81`

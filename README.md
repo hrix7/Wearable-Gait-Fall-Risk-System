@@ -85,3 +85,7 @@ Adds interval_count and sample_interval_cv_percent (sample SD, ddof=1), undefine
 ## Flattened-signal gap scenarios
 
 Added nine deterministic finite flattening scenarios: replace [0.4T,0.5T) by 1 g while retaining timestamps. Evaluate separately against nominal events and reference centers outside the gap. This is not support for real NaN/missing samples, participant gait, or clinical fall-risk prediction. Full-precision masked signal hashes reproduce from the generator/config, not the rounded base CSV. Tests cover mask boundaries, invalid intervals, reference accounting and exact regeneration.
+
+## Paired additive motion-burst scenarios
+
+Nine motion conditions add a fixed 0.4 g, 2.7 Hz sinusoid under a sin-squared envelope on [0.3T,0.6T). Original pulse centers and paired noise are unchanged. Both predeclared detectors are scored against independent event truth. Tests check analytic envelope samples, exact untouched boundaries, invalid inputs, full-precision signal hashes and independently recomputed metrics. This is a teaching acceleration surrogate, not measured participant motion or clinical fall-risk validation.

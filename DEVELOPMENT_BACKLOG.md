@@ -22,8 +22,12 @@ Expose interval sample size and separate sample-SD variability.
 
 Flattened-signal gap scenarios.
 
+## Completed — 2026-11-18
+
+Paired additive motion-burst scenarios.
+
 ## Next priorities
 
-1. Add defined motion-artifact scenarios with independent event truth.
-2. Introduce independent-seed uncertainty summaries with a stated sampling model.
+1. Introduce independent-seed uncertainty with a stated sampling model.
+2. Compare localized motion and flattened-gap effects without selecting parameters on holdout.
 3. Review public gait dataset terms and subject-wise evaluation.

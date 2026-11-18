@@ -4583,13 +4583,229 @@
   "jitter_data_sha256": "0945560189a6bce7553fca22548aaad7a88ac6ab10090a042fc624b92ab855e9",
   "jitter_protocol": "Independent seed+1 uniform event offsets; half-width min(0.06 s, 0.2 periods); nominal cadence labels remain generator settings. Noise seed/channel unchanged; actual perturbed centers are truth.",
   "limitations": "Gaussian pulse acceleration surrogate with known event centers. Not measured walking, participant validation or clinical fall-risk prediction.",
+  "motion_conditions": [
+    {
+      "cadence_spm": 90,
+      "fixed_height_baseline_metrics": {
+        "f1": 0.8709677419354839,
+        "false_negatives": 2,
+        "false_positives": 6,
+        "precision": 0.8181818181818182,
+        "recall": 0.9310344827586207,
+        "timing_mae_seconds": 0.011975308641975577,
+        "true_positives": 27
+      },
+      "metrics": {
+        "f1": 0.8709677419354839,
+        "false_negatives": 2,
+        "false_positives": 6,
+        "precision": 0.8181818181818182,
+        "recall": 0.9310344827586207,
+        "timing_mae_seconds": 0.011975308641975577,
+        "true_positives": 27
+      },
+      "noise_sd_g": 0.01,
+      "signal_sha256": "da376181fc81932c9ae8f7edf668462f246f26440357c70674023ace70b4ec2d"
+    },
+    {
+      "cadence_spm": 90,
+      "fixed_height_baseline_metrics": {
+        "f1": 0.8125,
+        "false_negatives": 3,
+        "false_positives": 9,
+        "precision": 0.7428571428571429,
+        "recall": 0.896551724137931,
+        "timing_mae_seconds": 0.030512820512820806,
+        "true_positives": 26
+      },
+      "metrics": {
+        "f1": 0.8,
+        "false_negatives": 1,
+        "false_positives": 13,
+        "precision": 0.6829268292682927,
+        "recall": 0.9655172413793104,
+        "timing_mae_seconds": 0.024047619047619262,
+        "true_positives": 28
+      },
+      "noise_sd_g": 0.06,
+      "signal_sha256": "845daa70e401c30a4a2ff9806713c0b75d86c9a8257b065abc8213cec70e42ed"
+    },
+    {
+      "cadence_spm": 90,
+      "fixed_height_baseline_metrics": {
+        "f1": 0.6153846153846154,
+        "false_negatives": 5,
+        "false_positives": 25,
+        "precision": 0.4897959183673469,
+        "recall": 0.8275862068965517,
+        "timing_mae_seconds": 0.04666666666666691,
+        "true_positives": 24
+      },
+      "metrics": {
+        "f1": 0.6233766233766234,
+        "false_negatives": 5,
+        "false_positives": 24,
+        "precision": 0.5,
+        "recall": 0.8275862068965517,
+        "timing_mae_seconds": 0.031944444444444685,
+        "true_positives": 24
+      },
+      "noise_sd_g": 0.12,
+      "signal_sha256": "368bf996be16d20385c811e7ebe0ccac45a8b6c77fb6de7c8f1d4c0be50461b1"
+    },
+    {
+      "cadence_spm": 120,
+      "fixed_height_baseline_metrics": {
+        "f1": 0.8974358974358975,
+        "false_negatives": 3,
+        "false_positives": 5,
+        "precision": 0.875,
+        "recall": 0.9210526315789473,
+        "timing_mae_seconds": 0.012285714285714448,
+        "true_positives": 35
+      },
+      "metrics": {
+        "f1": 0.8974358974358975,
+        "false_negatives": 3,
+        "false_positives": 5,
+        "precision": 0.875,
+        "recall": 0.9210526315789473,
+        "timing_mae_seconds": 0.012285714285714448,
+        "true_positives": 35
+      },
+      "noise_sd_g": 0.01,
+      "signal_sha256": "0f70b8ebe2a328d0d7eebcda63b25ce106434cb35c61c4ea162ac4b6514197ed"
+    },
+    {
+      "cadence_spm": 120,
+      "fixed_height_baseline_metrics": {
+        "f1": 0.9,
+        "false_negatives": 2,
+        "false_positives": 6,
+        "precision": 0.8571428571428571,
+        "recall": 0.9473684210526315,
+        "timing_mae_seconds": 0.03277777777777793,
+        "true_positives": 36
+      },
+      "metrics": {
+        "f1": 0.875,
+        "false_negatives": 3,
+        "false_positives": 7,
+        "precision": 0.8333333333333334,
+        "recall": 0.9210526315789473,
+        "timing_mae_seconds": 0.018000000000000117,
+        "true_positives": 35
+      },
+      "noise_sd_g": 0.06,
+      "signal_sha256": "d5c7bc05bd79ba2877622f56610eb82683a72e9fbe9660b296950127b86440e1"
+    },
+    {
+      "cadence_spm": 120,
+      "fixed_height_baseline_metrics": {
+        "f1": 0.6590909090909091,
+        "false_negatives": 9,
+        "false_positives": 21,
+        "precision": 0.58,
+        "recall": 0.7631578947368421,
+        "timing_mae_seconds": 0.06103448275862065,
+        "true_positives": 29
+      },
+      "metrics": {
+        "f1": 0.825,
+        "false_negatives": 5,
+        "false_positives": 9,
+        "precision": 0.7857142857142857,
+        "recall": 0.868421052631579,
+        "timing_mae_seconds": 0.026363636363636447,
+        "true_positives": 33
+      },
+      "noise_sd_g": 0.12,
+      "signal_sha256": "6e60fdfa9fe89215c5814518802d72ec28998a92b99f9ee820c47e5da3d2c6d7"
+    },
+    {
+      "cadence_spm": 150,
+      "fixed_height_baseline_metrics": {
+        "f1": 0.9574468085106383,
+        "false_negatives": 2,
+        "false_positives": 2,
+        "precision": 0.9574468085106383,
+        "recall": 0.9574468085106383,
+        "timing_mae_seconds": 0.018000000000000148,
+        "true_positives": 45
+      },
+      "metrics": {
+        "f1": 0.9574468085106383,
+        "false_negatives": 2,
+        "false_positives": 2,
+        "precision": 0.9574468085106383,
+        "recall": 0.9574468085106383,
+        "timing_mae_seconds": 0.018000000000000148,
+        "true_positives": 45
+      },
+      "noise_sd_g": 0.01,
+      "signal_sha256": "1142b8fd04869ff51fcdf3be64167a4e7e1b8723cd6d6a25d6c277fe031af586"
+    },
+    {
+      "cadence_spm": 150,
+      "fixed_height_baseline_metrics": {
+        "f1": 0.9473684210526315,
+        "false_negatives": 2,
+        "false_positives": 3,
+        "precision": 0.9375,
+        "recall": 0.9574468085106383,
+        "timing_mae_seconds": 0.024222222222222346,
+        "true_positives": 45
+      },
+      "metrics": {
+        "f1": 0.9263157894736842,
+        "false_negatives": 3,
+        "false_positives": 4,
+        "precision": 0.9166666666666666,
+        "recall": 0.9361702127659575,
+        "timing_mae_seconds": 0.01818181818181837,
+        "true_positives": 44
+      },
+      "noise_sd_g": 0.06,
+      "signal_sha256": "02fe5cd4991157af3b2f0da42b1d787c4bcc68e53b4569f47ea7efe9accd36a8"
+    },
+    {
+      "cadence_spm": 150,
+      "fixed_height_baseline_metrics": {
+        "f1": 0.865979381443299,
+        "false_negatives": 5,
+        "false_positives": 8,
+        "precision": 0.84,
+        "recall": 0.8936170212765957,
+        "timing_mae_seconds": 0.04380952380952391,
+        "true_positives": 42
+      },
+      "metrics": {
+        "f1": 0.8631578947368421,
+        "false_negatives": 6,
+        "false_positives": 7,
+        "precision": 0.8541666666666666,
+        "recall": 0.8723404255319149,
+        "timing_mae_seconds": 0.02463414634146363,
+        "true_positives": 41
+      },
+      "noise_sd_g": 0.12,
+      "signal_sha256": "1ce37d2ad33294ebf890cfbeb2e9be7967d497ad01c25c00fabfd1b6b6806a72"
+    }
+  ],
+  "motion_protocol": {
+    "amplitude_g": 0.4,
+    "definition": "Add amplitude*sin(2*pi*frequency*(t-start))*sin(pi*(t-start)/(end-start))**2 on [start,end), zero elsewhere. Original event times and paired noise remain unchanged. Teaching motion surrogate, not measured biomechanics; reconstruct full-precision hashes from generator/config.",
+    "end_seconds": 12.0,
+    "frequency_hz": 2.7,
+    "start_seconds": 6.0
+  },
   "schema_version": 1,
   "signal_gap_protocol": "Base regular-timing signals have samples in [0.4*duration,0.5*duration) replaced by constant 1 g, timestamps retained. This is a finite flattening surrogate, not real missing-value handling. Reproduce full-precision masked signals from the generator/config and stated mask. Base data.csv is rounded and does not reproduce full-precision signal hashes. Nominal references include gap centers; present references exclude them. Boundary/filter peaks can match nominal slots without recovering signal.",
   "source_files_sha256": {
-    "pipeline.py": "0f0e29c6e7a62cf423850baa966a53a3f6fa0e111e444fa6a24aa0257cf69c1c",
+    "pipeline.py": "7f4c32a2eee6e2d7568e56279d6f38b7f49c11be6f23e52ffed1fb86e04c2e86",
     "src/gait_summary.py": "83908a6153884206a2487127513343322762390a5847ff95c4d16d74f6fedb57",
     "src/step_detection.py": "7c779cb1f5696586be7f51aa1e8c6d6e6cead1ab89e3170ca777128757a69187"
   },
-  "source_sha256": "0f0e29c6e7a62cf423850baa966a53a3f6fa0e111e444fa6a24aa0257cf69c1c",
+  "source_sha256": "7f4c32a2eee6e2d7568e56279d6f38b7f49c11be6f23e52ffed1fb86e04c2e86",
   "summary_interpretation": "interval_cv_percent retains population SD (ddof=0). sample_interval_cv_percent uses sample SD (ddof=1) only with >=2 intervals; interval_count makes sample size explicit. Neither estimates clinical fall risk."
 }
