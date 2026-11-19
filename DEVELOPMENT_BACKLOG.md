@@ -26,8 +26,12 @@ Flattened-signal gap scenarios.
 
 Paired additive motion-burst scenarios.
 
+## Completed — 2026-11-19
+
+Independent noise-realization sensitivity.
+
 ## Next priorities
 
-1. Introduce independent-seed uncertainty with a stated sampling model.
-2. Compare localized motion and flattened-gap effects without selecting parameters on holdout.
+1. Compare paired motion/gap degradation over noise realizations with a stated sampling model.
+2. Add independently checked summary uncertainty without subject-population claims.
 3. Review public gait dataset terms and subject-wise evaluation.

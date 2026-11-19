@@ -126,6 +126,18 @@ def motion_burst(samples,fs,start,end,amplitude=.4,frequency=2.7):
         raise ValueError('finite signal, bounded window, nonnegative amplitude and interior frequency required')
     return [v+amplitude*math.sin(2*math.pi*frequency*(i/fs-start))*math.sin(math.pi*(i/fs-start)/(end-start))**2 if start<=i/fs<end else v for i,v in enumerate(samples)]
 
+def noise_replicate_probe(config,cadence,noise,seeds=None):
+    seeds=list(range(config['seed']+1000,config['seed']+1010)) if seeds is None else seeds
+    if not isinstance(seeds,(list,tuple)) or len(seeds)<2 or any(type(seed) is not int for seed in seeds) or len(set(seeds))!=len(seeds):
+        raise ValueError('at least two unique integer noise seeds required')
+    records=[]
+    for seed in seeds:
+        truth,x=generate({**config,'seed':seed},cadence,noise);fs=config['sample_rate_hz']
+        idx=detect_steps(x,fs,config['min_interval_seconds'],config['prominence_g']).tolist()
+        records.append(dict(seed=seed,signal_sha256=digest(encode(x)),metrics=event_metrics(truth,[i/fs for i in idx],config['match_tolerance_seconds'])))
+    values=[row['metrics']['f1'] for row in records];defined=[v for v in values if v is not None]
+    return dict(cadence_spm=cadence,noise_sd_g=noise,replicates=records,defined_f1_count=len(defined),f1_mean=sum(defined)/len(defined) if defined else None,f1_min=min(defined) if defined else None,f1_max=max(defined) if defined else None)
+
 def experiment():
     config_bytes=(ROOT/'config.json').read_bytes();config=json.loads(config_bytes);validate(config)
     stream=io.StringIO(newline='');writer=csv.writer(stream,lineterminator='\n')
@@ -180,7 +192,7 @@ def experiment():
                 source_sha256=sources['pipeline.py'],source_files_sha256=sources,data_sha256=digest(data),
                 conditions=conditions,chart=chart,jitter_conditions=jitter_conditions,jitter_data_sha256=digest(jitter_data),
                 jitter_protocol='Independent seed+1 uniform event offsets; half-width min(0.06 s, 0.2 periods); nominal cadence labels remain generator settings. Noise seed/channel unchanged; actual perturbed centers are truth.',
-                motion_conditions=motion_conditions,motion_protocol=dict(start_seconds=motion_start,end_seconds=motion_end,amplitude_g=.4,frequency_hz=2.7,definition='Add amplitude*sin(2*pi*frequency*(t-start))*sin(pi*(t-start)/(end-start))**2 on [start,end), zero elsewhere. Original event times and paired noise remain unchanged. Teaching motion surrogate, not measured biomechanics; reconstruct full-precision hashes from generator/config.'),gap_conditions=gap_conditions,signal_gap_protocol='Base regular-timing signals have samples in [0.4*duration,0.5*duration) replaced by constant 1 g, timestamps retained. This is a finite flattening surrogate, not real missing-value handling. Reproduce full-precision masked signals from the generator/config and stated mask. Base data.csv is rounded and does not reproduce full-precision signal hashes. Nominal references include gap centers; present references exclude them. Boundary/filter peaks can match nominal slots without recovering signal.',
+                noise_replicate_conditions=[noise_replicate_probe(config,cadence,noise) for cadence in config['cadences_spm'] for noise in config['noise_sd_g']],noise_replicate_protocol='Ten predeclared noise seeds seed+1000 through seed+1009 per cadence/noise cell, fixed regular event times and detector. Within-cell noise-only sensitivity, not subject/population uncertainty or confidence intervals. Seed realizations are paired across cells; do not pool cells as independent samples. Exact signals regenerate from config and each stored seed.',motion_conditions=motion_conditions,motion_protocol=dict(start_seconds=motion_start,end_seconds=motion_end,amplitude_g=.4,frequency_hz=2.7,definition='Add amplitude*sin(2*pi*frequency*(t-start))*sin(pi*(t-start)/(end-start))**2 on [start,end), zero elsewhere. Original event times and paired noise remain unchanged. Teaching motion surrogate, not measured biomechanics; reconstruct full-precision hashes from generator/config.'),gap_conditions=gap_conditions,signal_gap_protocol='Base regular-timing signals have samples in [0.4*duration,0.5*duration) replaced by constant 1 g, timestamps retained. This is a finite flattening surrogate, not real missing-value handling. Reproduce full-precision masked signals from the generator/config and stated mask. Base data.csv is rounded and does not reproduce full-precision signal hashes. Nominal references include gap centers; present references exclude them. Boundary/filter peaks can match nominal slots without recovering signal.',
                 summary_interpretation='interval_cv_percent retains population SD (ddof=0). sample_interval_cv_percent uses sample SD (ddof=1) only with >=2 intervals; interval_count makes sample size explicit. Neither estimates clinical fall risk.',
                 limitations='Gaussian pulse acceleration surrogate with known event centers. Not measured walking, participant validation or clinical fall-risk prediction.')
     report='# Synthetic gait event benchmark\n\nKnown pulse centers are reference events. All values below are measured by the detector; no clinical validity is claimed.\n\n'
@@ -203,6 +215,9 @@ def experiment():
     report+='\n## Additive motion-burst probe\n\nIndependent additive 0.4 g, 2.7 Hz sinusoid under a sin-squared envelope on [0.3T,0.6T). Event truth and paired base noise remain unchanged. Teaching perturbation, not participant motion validation.\n\n| Cadence | Noise SD | Extra | Missed | Prominence F1 | Fixed-height F1 |\n|---|---|---|---|---|---|\n'
     for c in motion_conditions:
         m=c['metrics'];report+='| '+' | '.join(show(v) for v in [c['cadence_spm'],c['noise_sd_g'],m['false_positives'],m['false_negatives'],m['f1'],c['fixed_height_baseline_metrics']['f1']])+' |\n'
+    report+='\n## Independent noise realizations\n\nTen predeclared noise seeds per fixed cadence/noise cell; same analytic event times and detector. Descriptive noise-only F1 range/mean, not a confidence interval or subject variability. Noise realizations are paired across cells.\n\n| Cadence | Noise SD | Defined F1 replicates | Mean F1 | Min F1 | Max F1 |\n|---|---|---|---|---|---|\n'
+    for c in result['noise_replicate_conditions']:
+        report+='| '+' | '.join(show(v) for v in [c['cadence_spm'],c['noise_sd_g'],c['defined_f1_count'],c['f1_mean'],c['f1_min'],c['f1_max']])+' |\n'
     result_bytes=encode(result)
     report+='\nResult SHA-256: `'+digest(result_bytes)+'`\n'
     files={'data.csv':data,'jitter_data.csv':jitter_data,'results.json':result_bytes,'report.md':report.encode()}

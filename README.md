@@ -89,3 +89,7 @@ Added nine deterministic finite flattening scenarios: replace [0.4T,0.5T) by 1 g
 ## Paired additive motion-burst scenarios
 
 Nine motion conditions add a fixed 0.4 g, 2.7 Hz sinusoid under a sin-squared envelope on [0.3T,0.6T). Original pulse centers and paired noise are unchanged. Both predeclared detectors are scored against independent event truth. Tests check analytic envelope samples, exact untouched boundaries, invalid inputs, full-precision signal hashes and independently recomputed metrics. This is a teaching acceleration surrogate, not measured participant motion or clinical fall-risk validation.
+
+## Independent noise-realization sensitivity
+
+Added ten predeclared noise seeds per cadence/noise cell with fixed regular event times and detector. Reports each replicate hash/metrics plus descriptive F1 min/mean/max and defined-value count. This measures within-cell noise-only sensitivity, not population uncertainty, confidence intervals or clinical fall risk. Realizations are paired across cells and must not be pooled as independent samples. Original benchmark seeds/results remain separate. Tests independently reconstruct each signal/metric, verify seed-invariant zero-noise output and validate seed specifications.

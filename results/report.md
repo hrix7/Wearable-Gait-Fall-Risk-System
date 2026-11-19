@@ -80,4 +80,20 @@ Independent additive 0.4 g, 2.7 Hz sinusoid under a sin-squared envelope on [0.3
 | 150 | 0.06 | 4 | 3 | 0.9263 | 0.9474 |
 | 150 | 0.12 | 7 | 6 | 0.8632 | 0.866 |
 
-Result SHA-256: `0a75094a5fd56f7877e3dcb2bf0c05105383690beb246495a5226f1185d0de81`
+## Independent noise realizations
+
+Ten predeclared noise seeds per fixed cadence/noise cell; same analytic event times and detector. Descriptive noise-only F1 range/mean, not a confidence interval or subject variability. Noise realizations are paired across cells.
+
+| Cadence | Noise SD | Defined F1 replicates | Mean F1 | Min F1 | Max F1 |
+|---|---|---|---|---|---|
+| 90 | 0.01 | 10 | 1 | 1 | 1 |
+| 90 | 0.06 | 10 | 0.8461 | 0.8056 | 0.8923 |
+| 90 | 0.12 | 10 | 0.7085 | 0.6234 | 0.7532 |
+| 120 | 0.01 | 10 | 1 | 1 | 1 |
+| 120 | 0.06 | 10 | 0.9795 | 0.962 | 1 |
+| 120 | 0.12 | 10 | 0.9227 | 0.8642 | 0.962 |
+| 150 | 0.01 | 10 | 1 | 1 | 1 |
+| 150 | 0.06 | 10 | 0.9802 | 0.9691 | 0.9895 |
+| 150 | 0.12 | 10 | 0.9465 | 0.8817 | 0.9792 |
+
+Result SHA-256: `cedc3c82854b8d4776013250a18ac21f4839584a38eb7fefe05c76895af3fe3c`
