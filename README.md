@@ -93,3 +93,7 @@ Nine motion conditions add a fixed 0.4 g, 2.7 Hz sinusoid under a sin-squared en
 ## Independent noise-realization sensitivity
 
 Added ten predeclared noise seeds per cadence/noise cell with fixed regular event times and detector. Reports each replicate hash/metrics plus descriptive F1 min/mean/max and defined-value count. This measures within-cell noise-only sensitivity, not population uncertainty, confidence intervals or clinical fall risk. Realizations are paired across cells and must not be pooled as independent samples. Original benchmark seeds/results remain separate. Tests independently reconstruct each signal/metric, verify seed-invariant zero-noise output and validate seed specifications.
+
+## Paired motion effects over noise realizations
+
+Each predeclared noise realization now applies the same fixed motion burst to its own base signal, preserving independent event truth. Reports motion signal hashes/F1 and original-minus-motion paired F1 min/mean/max, including negative differences when motion happens to improve scores. These are descriptive noise-only pairs, not confidence intervals or subject-population claims. Tests reconstruct hashes/scores and use identity perturbations to prove exactly zero paired effect.

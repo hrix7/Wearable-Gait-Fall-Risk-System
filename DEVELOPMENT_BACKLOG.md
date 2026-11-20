@@ -30,8 +30,12 @@ Paired additive motion-burst scenarios.
 
 Independent noise-realization sensitivity.
 
+## Completed — 2026-11-20
+
+Paired motion effects over noise realizations.
+
 ## Next priorities
 
-1. Compare paired motion/gap degradation over noise realizations with a stated sampling model.
+1. Compare flattened-gap effects over paired noise realizations with explicit reference populations.
 2. Add independently checked summary uncertainty without subject-population claims.
 3. Review public gait dataset terms and subject-wise evaluation.
