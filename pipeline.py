@@ -137,7 +137,12 @@ def noise_replicate_probe(config,cadence,noise,seeds=None):
         motion=motion_burst(x,fs,.3*config['duration_seconds'],.6*config['duration_seconds'])
         motion_idx=detect_steps(motion,fs,config['min_interval_seconds'],config['prominence_g']).tolist()
         motion_metrics=event_metrics(truth,[i/fs for i in motion_idx],config['match_tolerance_seconds'])
-        records.append(dict(seed=seed,signal_sha256=digest(encode(x)),motion_signal_sha256=digest(encode(motion)),motion_f1=motion_metrics['f1'],metrics=event_metrics(truth,[i/fs for i in idx],config['match_tolerance_seconds'])))
+        start=.4*config['duration_seconds'];end=.5*config['duration_seconds']
+        gap=flatten_gap(x,fs,start,end)
+        gap_idx=detect_steps(gap,fs,config['min_interval_seconds'],config['prominence_g']).tolist()
+        present=[t for t in truth if not start<=t<end]
+        gap_record=dict(signal_sha256=digest(encode(gap)),nominal_reference_count=len(truth),present_reference_count=len(present),nominal_metrics=event_metrics(truth,[i/fs for i in gap_idx],config['match_tolerance_seconds']),present_metrics=event_metrics(present,[i/fs for i in gap_idx],config['match_tolerance_seconds']))
+        records.append(dict(gap=gap_record,seed=seed,signal_sha256=digest(encode(x)),motion_signal_sha256=digest(encode(motion)),motion_f1=motion_metrics['f1'],metrics=event_metrics(truth,[i/fs for i in idx],config['match_tolerance_seconds'])))
     values=[row['metrics']['f1'] for row in records];defined=[v for v in values if v is not None]
     deltas=[row['metrics']['f1']-row['motion_f1'] for row in records if row['metrics']['f1'] is not None and row['motion_f1'] is not None]
     return dict(motion_paired_delta=dict(defined_pairs=len(deltas),mean_original_minus_motion=sum(deltas)/len(deltas) if deltas else None,minimum=min(deltas) if deltas else None,maximum=max(deltas) if deltas else None),cadence_spm=cadence,noise_sd_g=noise,replicates=records,defined_f1_count=len(defined),f1_mean=sum(defined)/len(defined) if defined else None,f1_min=min(defined) if defined else None,f1_max=max(defined) if defined else None)

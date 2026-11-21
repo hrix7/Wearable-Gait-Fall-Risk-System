@@ -47,3 +47,9 @@ Added ten predeclared noise seeds per cadence/noise cell with fixed regular even
 ## 2026-11-20 — Paired motion effects over noise realizations
 
 Each predeclared noise realization now applies the same fixed motion burst to its own base signal, preserving independent event truth. Reports motion signal hashes/F1 and original-minus-motion paired F1 min/mean/max, including negative differences when motion happens to improve scores. These are descriptive noise-only pairs, not confidence intervals or subject-population claims. Tests reconstruct hashes/scores and use identity perturbations to prove exactly zero paired effect. Full suite: 38 tests passed; pipeline generation, independent --verify and diff checks passed before publication. Workflow policy tests passed without workflow/permission changes.
+
+## 2026-11-21 — Evaluate paired flattened gaps across noise realizations
+
+Each existing noise replicate now exports independently reproducible gap-signal hash and both nominal-reference and present-reference metrics/counts. Original and motion conditions retained. Reconstruct gaps via independent sample assignment and recompute both event populations. Descriptive synthetic scenario results, not missing-value handling or population uncertainty.
+
+Validation: full existing suite plus new tests (39 passed), pipeline generation and independent --verify, scoped diff review and git diff --check before publication. Hosted CI is followed after pushing. Existing read-only validation/publisher workflows unchanged; workflow-policy tests included.

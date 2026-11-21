@@ -39,3 +39,7 @@ Paired motion effects over noise realizations.
 1. Compare flattened-gap effects over paired noise realizations with explicit reference populations.
 2. Add independently checked summary uncertainty without subject-population claims.
 3. Review public gait dataset terms and subject-wise evaluation.
+
+## Completed — 2026-11-21
+
+Evaluate paired flattened gaps across noise realizations.

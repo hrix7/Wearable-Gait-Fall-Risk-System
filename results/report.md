@@ -96,4 +96,4 @@ Ten predeclared noise seeds per fixed cadence/noise cell; same analytic event ti
 | 150 | 0.06 | 10 | 0.9802 | 0.9691 | 0.9895 |
 | 150 | 0.12 | 10 | 0.9465 | 0.8817 | 0.9792 |
 
-Result SHA-256: `8c623debf6de4e14672d5278c23d9e7f0945e87c0ad238c60e74040eca425579`
+Result SHA-256: `4bf5f438f8ae4fa36f7276a63db4a9086e07326de3b6a69d0e86bde95accfd0a`
