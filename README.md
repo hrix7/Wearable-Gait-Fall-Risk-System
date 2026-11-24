@@ -101,3 +101,7 @@ Each predeclared noise realization now applies the same fixed motion burst to it
 ### November 21 development
 
 Each existing noise replicate now exports independently reproducible gap-signal hash and both nominal-reference and present-reference metrics/counts. Original and motion conditions retained. Reconstruct gaps via independent sample assignment and recompute both event populations. Descriptive synthetic scenario results, not missing-value handling or population uncertainty.
+
+### November 24 development
+
+Summarize original-minus-flattened-gap F1 within each noise cell for nominal and present reference populations separately. Export defined pair count, mean and extrema; retain negative effects and null when no pairs are defined. Hand fixtures independently verify sign, reference separation and undefined behavior. Finite descriptive synthetic scenarios, not subject-population uncertainty.

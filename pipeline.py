@@ -126,6 +126,13 @@ def motion_burst(samples,fs,start,end,amplitude=.4,frequency=2.7):
         raise ValueError('finite signal, bounded window, nonnegative amplitude and interior frequency required')
     return [v+amplitude*math.sin(2*math.pi*frequency*(i/fs-start))*math.sin(math.pi*(i/fs-start)/(end-start))**2 if start<=i/fs<end else v for i,v in enumerate(samples)]
 
+def paired_gap_summary(records):
+    summaries={}
+    for name in ('nominal','present'):
+        values=[r['metrics']['f1']-r['gap'][name+'_metrics']['f1'] for r in records if r['metrics']['f1'] is not None and r['gap'][name+'_metrics']['f1'] is not None]
+        summaries[name]=dict(defined_pairs=len(values),mean_original_minus_gap=sum(values)/len(values) if values else None,minimum=min(values) if values else None,maximum=max(values) if values else None)
+    return summaries
+
 def noise_replicate_probe(config,cadence,noise,seeds=None):
     seeds=list(range(config['seed']+1000,config['seed']+1010)) if seeds is None else seeds
     if not isinstance(seeds,(list,tuple)) or len(seeds)<2 or any(type(seed) is not int for seed in seeds) or len(set(seeds))!=len(seeds):
@@ -145,7 +152,7 @@ def noise_replicate_probe(config,cadence,noise,seeds=None):
         records.append(dict(gap=gap_record,seed=seed,signal_sha256=digest(encode(x)),motion_signal_sha256=digest(encode(motion)),motion_f1=motion_metrics['f1'],metrics=event_metrics(truth,[i/fs for i in idx],config['match_tolerance_seconds'])))
     values=[row['metrics']['f1'] for row in records];defined=[v for v in values if v is not None]
     deltas=[row['metrics']['f1']-row['motion_f1'] for row in records if row['metrics']['f1'] is not None and row['motion_f1'] is not None]
-    return dict(motion_paired_delta=dict(defined_pairs=len(deltas),mean_original_minus_motion=sum(deltas)/len(deltas) if deltas else None,minimum=min(deltas) if deltas else None,maximum=max(deltas) if deltas else None),cadence_spm=cadence,noise_sd_g=noise,replicates=records,defined_f1_count=len(defined),f1_mean=sum(defined)/len(defined) if defined else None,f1_min=min(defined) if defined else None,f1_max=max(defined) if defined else None)
+    return dict(gap_paired_delta=paired_gap_summary(records),motion_paired_delta=dict(defined_pairs=len(deltas),mean_original_minus_motion=sum(deltas)/len(deltas) if deltas else None,minimum=min(deltas) if deltas else None,maximum=max(deltas) if deltas else None),cadence_spm=cadence,noise_sd_g=noise,replicates=records,defined_f1_count=len(defined),f1_mean=sum(defined)/len(defined) if defined else None,f1_min=min(defined) if defined else None,f1_max=max(defined) if defined else None)
 
 def experiment():
     config_bytes=(ROOT/'config.json').read_bytes();config=json.loads(config_bytes);validate(config)

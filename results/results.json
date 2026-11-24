@@ -4806,6 +4806,20 @@
       "f1_max": 1.0,
       "f1_mean": 1.0,
       "f1_min": 1.0,
+      "gap_paired_delta": {
+        "nominal": {
+          "defined_pairs": 10,
+          "maximum": 0.054545454545454564,
+          "mean_original_minus_gap": 0.054545454545454564,
+          "minimum": 0.054545454545454564
+        },
+        "present": {
+          "defined_pairs": 10,
+          "maximum": 0.0,
+          "mean_original_minus_gap": 0.0,
+          "minimum": 0.0
+        }
+      },
       "motion_paired_delta": {
         "defined_pairs": 10,
         "maximum": 0.1428571428571429,
@@ -5202,6 +5216,20 @@
       "f1_max": 0.8923076923076924,
       "f1_mean": 0.8461062282417782,
       "f1_min": 0.8055555555555556,
+      "gap_paired_delta": {
+        "nominal": {
+          "defined_pairs": 10,
+          "maximum": 0.06446030715985285,
+          "mean_original_minus_gap": 0.04064912446243353,
+          "minimum": 0.015182884748102143
+        },
+        "present": {
+          "defined_pairs": 10,
+          "maximum": 0.028079710144927494,
+          "mean_original_minus_gap": 0.008026318585187198,
+          "minimum": -0.026086956521739202
+        }
+      },
       "motion_paired_delta": {
         "defined_pairs": 10,
         "maximum": 0.11084998041519778,
@@ -5598,6 +5626,20 @@
       "f1_max": 0.7532467532467533,
       "f1_mean": 0.7084774739120732,
       "f1_min": 0.6233766233766234,
+      "gap_paired_delta": {
+        "nominal": {
+          "defined_pairs": 10,
+          "maximum": 0.08000000000000007,
+          "mean_original_minus_gap": 0.031714633149232306,
+          "minimum": -0.01158301158301156
+        },
+        "present": {
+          "defined_pairs": 10,
+          "maximum": 0.05101449275362324,
+          "mean_original_minus_gap": 0.014090187831538602,
+          "minimum": -0.013715207745058411
+        }
+      },
       "motion_paired_delta": {
         "defined_pairs": 10,
         "maximum": 0.06970244944928494,
@@ -5994,6 +6036,20 @@
       "f1_max": 1.0,
       "f1_mean": 1.0,
       "f1_min": 1.0,
+      "gap_paired_delta": {
+        "nominal": {
+          "defined_pairs": 10,
+          "maximum": 0.05555555555555558,
+          "mean_original_minus_gap": 0.05555555555555558,
+          "minimum": 0.05555555555555558
+        },
+        "present": {
+          "defined_pairs": 10,
+          "maximum": 0.0,
+          "mean_original_minus_gap": 0.0,
+          "minimum": 0.0
+        }
+      },
       "motion_paired_delta": {
         "defined_pairs": 10,
         "maximum": 0.11392405063291144,
@@ -6390,6 +6446,20 @@
       "f1_max": 1.0,
       "f1_mean": 0.9794859149289529,
       "f1_min": 0.9620253164556962,
+      "gap_paired_delta": {
+        "nominal": {
+          "defined_pairs": 10,
+          "maximum": 0.05555555555555558,
+          "mean_original_minus_gap": 0.055463289563861776,
+          "minimum": 0.0553586497890296
+        },
+        "present": {
+          "defined_pairs": 10,
+          "maximum": 0.00427883758245684,
+          "mean_original_minus_gap": 0.002344807414299754,
+          "minimum": 0.0
+        }
+      },
       "motion_paired_delta": {
         "defined_pairs": 10,
         "maximum": 0.11201298701298701,
@@ -6786,6 +6856,20 @@
       "f1_max": 0.9620253164556962,
       "f1_mean": 0.9227067586779947,
       "f1_min": 0.8641975308641975,
+      "gap_paired_delta": {
+        "nominal": {
+          "defined_pairs": 10,
+          "maximum": 0.05805907172995772,
+          "mean_original_minus_gap": 0.04567079037886845,
+          "minimum": 0.020467836257309857
+        },
+        "present": {
+          "defined_pairs": 10,
+          "maximum": 0.011111111111111183,
+          "mean_original_minus_gap": -0.003416969995415642,
+          "minimum": -0.02777777777777779
+        }
+      },
       "motion_paired_delta": {
         "defined_pairs": 10,
         "maximum": 0.0934959349593496,
@@ -7182,6 +7266,20 @@
       "f1_max": 1.0,
       "f1_mean": 1.0,
       "f1_min": 1.0,
+      "gap_paired_delta": {
+        "nominal": {
+          "defined_pairs": 10,
+          "maximum": 0.0561797752808989,
+          "mean_original_minus_gap": 0.0561797752808989,
+          "minimum": 0.0561797752808989
+        },
+        "present": {
+          "defined_pairs": 10,
+          "maximum": 0.0,
+          "mean_original_minus_gap": 0.0,
+          "minimum": 0.0
+        }
+      },
       "motion_paired_delta": {
         "defined_pairs": 10,
         "maximum": 0.06382978723404253,
@@ -7578,6 +7676,20 @@
       "f1_max": 0.9894736842105263,
       "f1_mean": 0.980239871586182,
       "f1_min": 0.9690721649484536,
+      "gap_paired_delta": {
+        "nominal": {
+          "defined_pairs": 10,
+          "maximum": 0.056140350877192935,
+          "mean_original_minus_gap": 0.04906950852241071,
+          "minimum": 0.04434098215275473
+        },
+        "present": {
+          "defined_pairs": 10,
+          "maximum": 0.014526710402999021,
+          "mean_original_minus_gap": 0.009030809409149531,
+          "minimum": 0.0012383900928791824
+        }
+      },
       "motion_paired_delta": {
         "defined_pairs": 10,
         "maximum": 0.06315789473684208,
@@ -7974,6 +8086,20 @@
       "f1_max": 0.9791666666666666,
       "f1_mean": 0.9464794047508909,
       "f1_min": 0.8817204301075269,
+      "gap_paired_delta": {
+        "nominal": {
+          "defined_pairs": 10,
+          "maximum": 0.06353861192570864,
+          "mean_original_minus_gap": 0.049545487604207884,
+          "minimum": 0.044290056448111126
+        },
+        "present": {
+          "defined_pairs": 10,
+          "maximum": 0.021542227662178726,
+          "mean_original_minus_gap": 0.013866833781864884,
+          "minimum": 0.00355492356914322
+        }
+      },
       "motion_paired_delta": {
         "defined_pairs": 10,
         "maximum": 0.06315789473684208,
@@ -8369,10 +8495,10 @@
   "schema_version": 1,
   "signal_gap_protocol": "Base regular-timing signals have samples in [0.4*duration,0.5*duration) replaced by constant 1 g, timestamps retained. This is a finite flattening surrogate, not real missing-value handling. Reproduce full-precision masked signals from the generator/config and stated mask. Base data.csv is rounded and does not reproduce full-precision signal hashes. Nominal references include gap centers; present references exclude them. Boundary/filter peaks can match nominal slots without recovering signal.",
   "source_files_sha256": {
-    "pipeline.py": "4b97fa50d12e039024daa29be88997c4583df182d4832528bcbd2ebbaadc1875",
+    "pipeline.py": "18630c8ada50445b99014c7e4d377c3f63f58e1b3cea0ed1088144980b4365e5",
     "src/gait_summary.py": "83908a6153884206a2487127513343322762390a5847ff95c4d16d74f6fedb57",
     "src/step_detection.py": "7c779cb1f5696586be7f51aa1e8c6d6e6cead1ab89e3170ca777128757a69187"
   },
-  "source_sha256": "4b97fa50d12e039024daa29be88997c4583df182d4832528bcbd2ebbaadc1875",
+  "source_sha256": "18630c8ada50445b99014c7e4d377c3f63f58e1b3cea0ed1088144980b4365e5",
   "summary_interpretation": "interval_cv_percent retains population SD (ddof=0). sample_interval_cv_percent uses sample SD (ddof=1) only with >=2 intervals; interval_count makes sample size explicit. Neither estimates clinical fall risk."
 }

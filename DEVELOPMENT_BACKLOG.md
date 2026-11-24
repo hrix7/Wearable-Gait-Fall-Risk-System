@@ -43,3 +43,12 @@ Paired motion effects over noise realizations.
 ## Completed — 2026-11-21
 
 Evaluate paired flattened gaps across noise realizations.
+
+## Completed — 2026-11-24
+
+Paired gap-effect summaries.
+
+## Current ordered next steps
+
+1. Compare a distinct detector baseline under the same paired gap conditions; keep real missing-value handling separate.
+2. Review public-data terms, exact release/checksums and subject mappings before ingestion; keep synthetic and public-data evaluation distinct.
