@@ -148,7 +148,8 @@ def noise_replicate_probe(config,cadence,noise,seeds=None):
         gap=flatten_gap(x,fs,start,end)
         gap_idx=detect_steps(gap,fs,config['min_interval_seconds'],config['prominence_g']).tolist()
         present=[t for t in truth if not start<=t<end]
-        gap_record=dict(signal_sha256=digest(encode(gap)),nominal_reference_count=len(truth),present_reference_count=len(present),nominal_metrics=event_metrics(truth,[i/fs for i in gap_idx],config['match_tolerance_seconds']),present_metrics=event_metrics(present,[i/fs for i in gap_idx],config['match_tolerance_seconds']))
+        gap_baseline=fixed_height_baseline(gap,fs,config['min_interval_seconds'])
+        gap_record=dict(fixed_height_nominal_metrics=event_metrics(truth,[i/fs for i in gap_baseline],config['match_tolerance_seconds']),fixed_height_present_metrics=event_metrics(present,[i/fs for i in gap_baseline],config['match_tolerance_seconds']),signal_sha256=digest(encode(gap)),nominal_reference_count=len(truth),present_reference_count=len(present),nominal_metrics=event_metrics(truth,[i/fs for i in gap_idx],config['match_tolerance_seconds']),present_metrics=event_metrics(present,[i/fs for i in gap_idx],config['match_tolerance_seconds']))
         records.append(dict(gap=gap_record,seed=seed,signal_sha256=digest(encode(x)),motion_signal_sha256=digest(encode(motion)),motion_f1=motion_metrics['f1'],metrics=event_metrics(truth,[i/fs for i in idx],config['match_tolerance_seconds'])))
     values=[row['metrics']['f1'] for row in records];defined=[v for v in values if v is not None]
     deltas=[row['metrics']['f1']-row['motion_f1'] for row in records if row['metrics']['f1'] is not None and row['motion_f1'] is not None]

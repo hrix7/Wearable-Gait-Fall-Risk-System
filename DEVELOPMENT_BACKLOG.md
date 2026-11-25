@@ -52,3 +52,12 @@ Paired gap-effect summaries.
 
 1. Compare a distinct detector baseline under the same paired gap conditions; keep real missing-value handling separate.
 2. Review public-data terms, exact release/checksums and subject mappings before ingestion; keep synthetic and public-data evaluation distinct.
+
+## Completed — 2026-11-25
+
+Independent baseline on paired flattened gaps.
+
+## Current next steps
+
+1. Compare paired baseline error differences without treating noise seeds as independent human participants.
+2. Review real-data license/version/checksums and subject mappings before ingestion.

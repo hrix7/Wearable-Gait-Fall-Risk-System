@@ -59,3 +59,9 @@ Validation: full existing suite plus new tests (39 passed), pipeline generation 
 Summarize original-minus-flattened-gap F1 within each noise cell for nominal and present reference populations separately. Export defined pair count, mean and extrema; retain negative effects and null when no pairs are defined. Hand fixtures independently verify sign, reference separation and undefined behavior. Finite descriptive synthetic scenarios, not subject-population uncertainty.
 
 Validation before publication: 41 full-suite tests passed, pipeline regeneration and independent --verify passed, scoped diff/checksum review and git diff --check passed. Workflow policy tests included; workflows and permissions unchanged. Hosted validation followed after pushing.
+
+## 2026-11-25 — Independent baseline on paired flattened gaps
+
+Run the existing fixed-height baseline on each paired noise realization after the same flattening. Report nominal and present-reference event metrics using identical baseline detections. Independently reconstruct each signal/detection/reference population; retain original prominence outputs. No tuning, real missing-value handling or clinical fall prediction.
+
+Pre-publication validation: 43 full-suite tests passed; pipeline generation and independent --verify, scoped diff and checksum review, git diff --check passed. Existing workflow policy tests included; no permission/workflow changes. Hosted CI followed after publication.

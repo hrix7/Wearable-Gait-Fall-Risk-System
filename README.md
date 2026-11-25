@@ -105,3 +105,7 @@ Each existing noise replicate now exports independently reproducible gap-signal 
 ### November 24 development
 
 Summarize original-minus-flattened-gap F1 within each noise cell for nominal and present reference populations separately. Export defined pair count, mean and extrema; retain negative effects and null when no pairs are defined. Hand fixtures independently verify sign, reference separation and undefined behavior. Finite descriptive synthetic scenarios, not subject-population uncertainty.
+
+### November 25 development
+
+Run the existing fixed-height baseline on each paired noise realization after the same flattening. Report nominal and present-reference event metrics using identical baseline detections. Independently reconstruct each signal/detection/reference population; retain original prominence outputs. No tuning, real missing-value handling or clinical fall prediction.
