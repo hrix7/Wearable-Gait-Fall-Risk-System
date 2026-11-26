@@ -127,6 +127,12 @@ def motion_burst(samples,fs,start,end,amplitude=.4,frequency=2.7):
     return [v+amplitude*math.sin(2*math.pi*frequency*(i/fs-start))*math.sin(math.pi*(i/fs-start)/(end-start))**2 if start<=i/fs<end else v for i,v in enumerate(samples)]
 
 def paired_gap_summary(records):
+    if not isinstance(records,(list,tuple)):raise ValueError('paired replicate records required')
+    for row in records:
+        try: values=[row['metrics']['f1'],row['gap']['nominal_metrics']['f1'],row['gap']['present_metrics']['f1']]
+        except (KeyError,TypeError):raise ValueError('explicit original and both gap-reference F1 values required') from None
+        if any(v is not None and (isinstance(v,bool) or not isinstance(v,(int,float)) or not math.isfinite(v) or not 0<=v<=1) for v in values):
+            raise ValueError('F1 must be finite in [0,1] or explicitly undefined')
     summaries={}
     for name in ('nominal','present'):
         values=[r['metrics']['f1']-r['gap'][name+'_metrics']['f1'] for r in records if r['metrics']['f1'] is not None and r['gap'][name+'_metrics']['f1'] is not None]

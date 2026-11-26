@@ -61,3 +61,12 @@ Independent baseline on paired flattened gaps.
 
 1. Compare paired baseline error differences without treating noise seeds as independent human participants.
 2. Review real-data license/version/checksums and subject mappings before ingestion.
+
+## Completed — 2026-11-26
+
+Validate paired gap-summary inputs.
+
+## Current ordered next steps
+
+1. Compare paired baseline error differences over the existing noise-only scenario grid.
+2. Review official data terms/version/checksums and subject mapping before any real-data ingestion.

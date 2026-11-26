@@ -65,3 +65,9 @@ Validation before publication: 41 full-suite tests passed, pipeline regeneration
 Run the existing fixed-height baseline on each paired noise realization after the same flattening. Report nominal and present-reference event metrics using identical baseline detections. Independently reconstruct each signal/detection/reference population; retain original prominence outputs. No tuning, real missing-value handling or clinical fall prediction.
 
 Pre-publication validation: 43 full-suite tests passed; pipeline generation and independent --verify, scoped diff and checksum review, git diff --check passed. Existing workflow policy tests included; no permission/workflow changes. Hosted CI followed after publication.
+
+## 2026-11-26 — Validate paired gap-summary inputs
+
+Require explicit original/nominal/present F1 states: finite [0,1] or null. Reject corrupt, missing, nonfinite or out-of-range values before averaging; keep empty/undefined summaries explicit. Tests cover each field and malformed records, preventing fabricated finite summaries.
+
+Pre-publication: 45 full-suite tests passed, regeneration and independent --verify, scoped diff/checksum review and git diff --check passed. Workflow policy tests included; no permission/workflow changes. Hosted validation followed after push.

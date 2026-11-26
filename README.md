@@ -109,3 +109,7 @@ Summarize original-minus-flattened-gap F1 within each noise cell for nominal and
 ### November 25 development
 
 Run the existing fixed-height baseline on each paired noise realization after the same flattening. Report nominal and present-reference event metrics using identical baseline detections. Independently reconstruct each signal/detection/reference population; retain original prominence outputs. No tuning, real missing-value handling or clinical fall prediction.
+
+### November 26 development
+
+Require explicit original/nominal/present F1 states: finite [0,1] or null. Reject corrupt, missing, nonfinite or out-of-range values before averaging; keep empty/undefined summaries explicit. Tests cover each field and malformed records, preventing fabricated finite summaries.

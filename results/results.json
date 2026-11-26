@@ -10115,10 +10115,10 @@
   "schema_version": 1,
   "signal_gap_protocol": "Base regular-timing signals have samples in [0.4*duration,0.5*duration) replaced by constant 1 g, timestamps retained. This is a finite flattening surrogate, not real missing-value handling. Reproduce full-precision masked signals from the generator/config and stated mask. Base data.csv is rounded and does not reproduce full-precision signal hashes. Nominal references include gap centers; present references exclude them. Boundary/filter peaks can match nominal slots without recovering signal.",
   "source_files_sha256": {
-    "pipeline.py": "324a93780e5c83882e860f2bd8fc28e181b0fb28702e713aa6b0de9fc6dff6d0",
+    "pipeline.py": "6f64da03b3641058dd7eb6457917a49955a1cfa1ec51f01ef1ff7f530a70b948",
     "src/gait_summary.py": "83908a6153884206a2487127513343322762390a5847ff95c4d16d74f6fedb57",
     "src/step_detection.py": "7c779cb1f5696586be7f51aa1e8c6d6e6cead1ab89e3170ca777128757a69187"
   },
-  "source_sha256": "324a93780e5c83882e860f2bd8fc28e181b0fb28702e713aa6b0de9fc6dff6d0",
+  "source_sha256": "6f64da03b3641058dd7eb6457917a49955a1cfa1ec51f01ef1ff7f530a70b948",
   "summary_interpretation": "interval_cv_percent retains population SD (ddof=0). sample_interval_cv_percent uses sample SD (ddof=1) only with >=2 intervals; interval_count makes sample size explicit. Neither estimates clinical fall risk."
 }
