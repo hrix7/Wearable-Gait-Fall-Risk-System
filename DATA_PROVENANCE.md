@@ -7,3 +7,6 @@ The existing SciPy prominence detector uses 0.15 g prominence and at least 0.3 s
 This is a deterministic software regression benchmark. It omits human gait morphology, sensor placement, motion artifacts, missing packets, posture and inter-person variation. The nine conditions are a scenario grid, not a population sample; no confidence interval or clinical fall-risk prediction is implied. The historical academic IMU/FSR/PPG concept is distinct from the new acceleration-only synthetic benchmark.
 
 Dependencies are pinned in requirements.txt. Retain the source commit, config.json, source/data/config SHA-256 values in results/results.json and results/manifest.json. The verifier recomputes all artifacts in the same environment. Last floating-point bits can vary across environments. Original project ownership and rights remain governed by LICENSE; no third-party datasets are redistributed.
+
+
+November 28 diagnostic extension: Prominence-minus-fixed-height F1 on identical flattened-gap noise realizations, separately against nominal/present reference events; signed descriptive ranges, direction counts and defined-pair counts. Noise seeds are not human participants; no population interval or detector selection. Existing primary generator, seeds and detector/model settings are unchanged.

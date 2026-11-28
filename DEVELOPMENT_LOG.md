@@ -71,3 +71,10 @@ Pre-publication validation: 43 full-suite tests passed; pipeline generation and 
 Require explicit original/nominal/present F1 states: finite [0,1] or null. Reject corrupt, missing, nonfinite or out-of-range values before averaging; keep empty/undefined summaries explicit. Tests cover each field and malformed records, preventing fabricated finite summaries.
 
 Pre-publication: 45 full-suite tests passed, regeneration and independent --verify, scoped diff/checksum review and git diff --check passed. Workflow policy tests included; no permission/workflow changes. Hosted validation followed after push.
+
+
+## 2026-11-28 — Paired detector comparison
+
+Prominence-minus-fixed-height F1 on identical flattened-gap noise realizations, separately against nominal/present reference events; signed descriptive ranges, direction counts and defined-pair counts. Noise seeds are not human participants; no population interval or detector selection. Added independent boundary/oracle tests. Full-suite and regenerated artifact checks are required before publication; actual counts and hosted checks are reported in the portfolio development log.
+
+Pre-push evidence: 47 full-suite tests passed; pipeline generation and independent --verify passed; git diff --check passed. Generated primary data bytes remain unchanged. No clinical or population validation.

@@ -4806,6 +4806,26 @@
       "f1_max": 1.0,
       "f1_mean": 1.0,
       "f1_min": 1.0,
+      "gap_detector_comparison": {
+        "nominal": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 0,
+          "maximum": 0.0,
+          "mean_prominence_minus_fixed_height_f1": 0.0,
+          "minimum": 0.0,
+          "prominence_higher": 0,
+          "ties": 10
+        },
+        "present": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 0,
+          "maximum": 0.0,
+          "mean_prominence_minus_fixed_height_f1": 0.0,
+          "minimum": 0.0,
+          "prominence_higher": 0,
+          "ties": 10
+        }
+      },
       "gap_paired_delta": {
         "nominal": {
           "defined_pairs": 10,
@@ -5396,6 +5416,26 @@
       "f1_max": 0.8923076923076924,
       "f1_mean": 0.8461062282417782,
       "f1_min": 0.8055555555555556,
+      "gap_detector_comparison": {
+        "nominal": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 7,
+          "maximum": 0.14743072370191013,
+          "mean_prominence_minus_fixed_height_f1": -0.0172101206143374,
+          "minimum": -0.11285266457680243,
+          "prominence_higher": 3,
+          "ties": 0
+        },
+        "present": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 8,
+          "maximum": 0.1523809523809524,
+          "mean_prominence_minus_fixed_height_f1": -0.022526143125779375,
+          "minimum": -0.12005772005772009,
+          "prominence_higher": 2,
+          "ties": 0
+        }
+      },
       "gap_paired_delta": {
         "nominal": {
           "defined_pairs": 10,
@@ -5986,6 +6026,26 @@
       "f1_max": 0.7532467532467533,
       "f1_mean": 0.7084774739120732,
       "f1_min": 0.6233766233766234,
+      "gap_detector_comparison": {
+        "nominal": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 1,
+          "maximum": 0.18168168168168164,
+          "mean_prominence_minus_fixed_height_f1": 0.06365152705960206,
+          "minimum": -0.019406392694063856,
+          "prominence_higher": 9,
+          "ties": 0
+        },
+        "present": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 2,
+          "maximum": 0.19024290671565625,
+          "mean_prominence_minus_fixed_height_f1": 0.06101633885371229,
+          "minimum": -0.019875776397515477,
+          "prominence_higher": 8,
+          "ties": 0
+        }
+      },
       "gap_paired_delta": {
         "nominal": {
           "defined_pairs": 10,
@@ -6576,6 +6636,26 @@
       "f1_max": 1.0,
       "f1_mean": 1.0,
       "f1_min": 1.0,
+      "gap_detector_comparison": {
+        "nominal": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 0,
+          "maximum": 0.0,
+          "mean_prominence_minus_fixed_height_f1": 0.0,
+          "minimum": 0.0,
+          "prominence_higher": 0,
+          "ties": 10
+        },
+        "present": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 0,
+          "maximum": 0.0,
+          "mean_prominence_minus_fixed_height_f1": 0.0,
+          "minimum": 0.0,
+          "prominence_higher": 0,
+          "ties": 10
+        }
+      },
       "gap_paired_delta": {
         "nominal": {
           "defined_pairs": 10,
@@ -7166,6 +7246,26 @@
       "f1_max": 1.0,
       "f1_mean": 0.9794859149289529,
       "f1_min": 0.9620253164556962,
+      "gap_detector_comparison": {
+        "nominal": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 2,
+          "maximum": 0.0855855855855856,
+          "mean_prominence_minus_fixed_height_f1": 0.024451849109383396,
+          "minimum": -0.012937595129375978,
+          "prominence_higher": 8,
+          "ties": 0
+        },
+        "present": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 2,
+          "maximum": 0.08907563025210086,
+          "mean_prominence_minus_fixed_height_f1": 0.025185726464498848,
+          "minimum": -0.01449275362318836,
+          "prominence_higher": 8,
+          "ties": 0
+        }
+      },
       "gap_paired_delta": {
         "nominal": {
           "defined_pairs": 10,
@@ -7756,6 +7856,26 @@
       "f1_max": 0.9620253164556962,
       "f1_mean": 0.9227067586779947,
       "f1_min": 0.8641975308641975,
+      "gap_detector_comparison": {
+        "nominal": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 0,
+          "maximum": 0.28016064257028106,
+          "mean_prominence_minus_fixed_height_f1": 0.22154780535836954,
+          "minimum": 0.13671373555840827,
+          "prominence_higher": 10,
+          "ties": 0
+        },
+        "present": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 0,
+          "maximum": 0.2995186307719736,
+          "mean_prominence_minus_fixed_height_f1": 0.23743745557785453,
+          "minimum": 0.14743589743589736,
+          "prominence_higher": 10,
+          "ties": 0
+        }
+      },
       "gap_paired_delta": {
         "nominal": {
           "defined_pairs": 10,
@@ -8346,6 +8466,26 @@
       "f1_max": 1.0,
       "f1_mean": 1.0,
       "f1_min": 1.0,
+      "gap_detector_comparison": {
+        "nominal": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 0,
+          "maximum": 0.0,
+          "mean_prominence_minus_fixed_height_f1": 0.0,
+          "minimum": 0.0,
+          "prominence_higher": 0,
+          "ties": 10
+        },
+        "present": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 0,
+          "maximum": 0.0,
+          "mean_prominence_minus_fixed_height_f1": 0.0,
+          "minimum": 0.0,
+          "prominence_higher": 0,
+          "ties": 10
+        }
+      },
       "gap_paired_delta": {
         "nominal": {
           "defined_pairs": 10,
@@ -8936,6 +9076,26 @@
       "f1_max": 0.9894736842105263,
       "f1_mean": 0.980239871586182,
       "f1_min": 0.9690721649484536,
+      "gap_detector_comparison": {
+        "nominal": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 10,
+          "maximum": -0.01025641025641022,
+          "mean_prominence_minus_fixed_height_f1": -0.01759368188004904,
+          "minimum": -0.030824372759856722,
+          "prominence_higher": 0,
+          "ties": 0
+        },
+        "present": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 10,
+          "maximum": -0.011491108071135514,
+          "mean_prominence_minus_fixed_height_f1": -0.019379173117085292,
+          "minimum": -0.033689839572192515,
+          "prominence_higher": 0,
+          "ties": 0
+        }
+      },
       "gap_paired_delta": {
         "nominal": {
           "defined_pairs": 10,
@@ -9526,6 +9686,26 @@
       "f1_max": 0.9791666666666666,
       "f1_mean": 0.9464794047508909,
       "f1_min": 0.8817204301075269,
+      "gap_detector_comparison": {
+        "nominal": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 0,
+          "maximum": 0.13043478260869557,
+          "mean_prominence_minus_fixed_height_f1": 0.06932221907634535,
+          "minimum": 0.009671179883945946,
+          "prominence_higher": 10,
+          "ties": 0
+        },
+        "present": {
+          "defined_pairs": 10,
+          "fixed_height_higher": 0,
+          "maximum": 0.13793103448275856,
+          "mean_prominence_minus_fixed_height_f1": 0.07410722079378051,
+          "minimum": 0.013537295248409409,
+          "prominence_higher": 10,
+          "ties": 0
+        }
+      },
       "gap_paired_delta": {
         "nominal": {
           "defined_pairs": 10,
@@ -10115,10 +10295,10 @@
   "schema_version": 1,
   "signal_gap_protocol": "Base regular-timing signals have samples in [0.4*duration,0.5*duration) replaced by constant 1 g, timestamps retained. This is a finite flattening surrogate, not real missing-value handling. Reproduce full-precision masked signals from the generator/config and stated mask. Base data.csv is rounded and does not reproduce full-precision signal hashes. Nominal references include gap centers; present references exclude them. Boundary/filter peaks can match nominal slots without recovering signal.",
   "source_files_sha256": {
-    "pipeline.py": "6f64da03b3641058dd7eb6457917a49955a1cfa1ec51f01ef1ff7f530a70b948",
+    "pipeline.py": "c742b4c463b5ba76dd6c2685719261f5e69e22070f195f2fc6bcad5825049bfd",
     "src/gait_summary.py": "83908a6153884206a2487127513343322762390a5847ff95c4d16d74f6fedb57",
     "src/step_detection.py": "7c779cb1f5696586be7f51aa1e8c6d6e6cead1ab89e3170ca777128757a69187"
   },
-  "source_sha256": "6f64da03b3641058dd7eb6457917a49955a1cfa1ec51f01ef1ff7f530a70b948",
+  "source_sha256": "c742b4c463b5ba76dd6c2685719261f5e69e22070f195f2fc6bcad5825049bfd",
   "summary_interpretation": "interval_cv_percent retains population SD (ddof=0). sample_interval_cv_percent uses sample SD (ddof=1) only with >=2 intervals; interval_count makes sample size explicit. Neither estimates clinical fall risk."
 }

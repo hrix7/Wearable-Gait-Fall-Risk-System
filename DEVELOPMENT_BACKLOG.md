@@ -70,3 +70,13 @@ Validate paired gap-summary inputs.
 
 1. Compare paired baseline error differences over the existing noise-only scenario grid.
 2. Review official data terms/version/checksums and subject mapping before any real-data ingestion.
+
+
+## Completed — 2026-11-28
+
+Paired detector comparison. Prominence-minus-fixed-height F1 on identical flattened-gap noise realizations, separately against nominal/present reference events; signed descriptive ranges, direction counts and defined-pair counts. Noise seeds are not human participants; no population interval or detector selection.
+
+## Next ordered work
+
+1. Review these conditional diagnostics before expanding experiments; keep descriptive scenarios separate from statistical uncertainty.
+2. Review exact public release/terms/checksums and participant mapping before real-data integration.
